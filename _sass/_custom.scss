@@ -24,25 +24,20 @@
   width: 100% !important;
 }
 
-/* Force navigation links to always be visible, never collapse */
-.greedy-nav .visible-links {
-  display: flex !important;
-  justify-content: flex-start !important;
-  align-items: center !important;
-  gap: 2rem !important;
-  width: 100% !important;
-}
-
-.greedy-nav .hidden-links {
-  display: none !important;
-}
-
-.greedy-nav button {
-  display: none !important;
-}
-
-.greedy-nav__toggle {
-  display: none !important;
+/* Keep navigation visible on desktop */
+@media screen and (min-width: 769px) {
+  .greedy-nav button {
+    display: none !important;
+  }
+  
+  .greedy-nav .visible-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .greedy-nav .hidden-links {
+    display: none !important;
+  }
 }
 
 /* ========================================================================
@@ -60,7 +55,7 @@
   max-width: 1200px !important;
   margin: 0 auto !important;
   display: flex !important;
-  gap: 2rem !important;
+  gap: 1.5rem !important;
 }
 
 /* Sidebar - make it narrower */
