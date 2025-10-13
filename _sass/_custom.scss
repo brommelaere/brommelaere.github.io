@@ -1,74 +1,64 @@
-/* SIMPLE CLEAN CSS FOR BEN ROMMELAERE */
+/* PROFESSIONAL CLEAN LAYOUT */
 
 /* ========================================================================
-   HEADER - SIMPLE, CENTERED, NAVIGATION VISIBLE
+   RESET AND BASE
+   ======================================================================== */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================================================
+   HEADER - CLEAN AND CENTERED
    ======================================================================== */
 
 .masthead {
   background-color: #ffffff !important;
   border-bottom: 1px solid #e5e5e5 !important;
+  padding: 1.5rem 0 !important;
 }
 
 .masthead__inner-wrap {
-  max-width: 1200px !important;
+  max-width: 1100px !important;
   margin: 0 auto !important;
-  padding: 1rem 2rem !important;
+  padding: 0 3rem !important;
 }
 
 /* ========================================================================
-   MAIN LAYOUT - SIDEBAR LEFT, CONTENT RIGHT
+   MAIN CONTENT AREA - PROPERLY ALIGNED
    ======================================================================== */
-
-.page {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 2rem !important;
-}
 
 #main {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 3rem 3rem 2rem 3rem !important;
   display: flex !important;
-  flex-direction: row !important;
+  gap: 3rem !important;
   align-items: flex-start !important;
-  gap: 2rem !important;
-  width: 100% !important;
-}
-
-/* Sidebar - left side, fixed width */
-.sidebar {
-  width: 250px !important;
-  flex-shrink: 0 !important;
-}
-
-/* Content - right side, takes remaining space */
-.page__inner-wrap {
-  flex: 1 !important;
-  min-width: 0 !important;
-}
-
-.page__content {
-  text-align: justify !important;
-}
-
-.page__content p {
-  text-align: justify !important;
-  line-height: 1.8 !important;
-  margin-bottom: 1.5em !important;
 }
 
 /* ========================================================================
-   SIDEBAR - IMAGE AND INFO
+   SIDEBAR - LEFT COLUMN
    ======================================================================== */
 
+.sidebar {
+  width: 280px !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
 .author__avatar {
+  margin-bottom: 1.5rem !important;
   text-align: center !important;
-  margin-bottom: 1rem !important;
 }
 
 .author__avatar img {
   width: 100% !important;
-  max-width: 200px !important;
+  max-width: 280px !important;
   border-radius: 8px !important;
   border: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
 }
 
 .author__content {
@@ -76,9 +66,10 @@
 }
 
 .author__name {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin: 0 0 1rem 0 !important;
   text-align: center !important;
-  font-size: 1.3rem !important;
-  margin-bottom: 0.5rem !important;
 }
 
 .author__urls-wrapper {
@@ -87,6 +78,7 @@
 
 .author__urls {
   padding: 0 !important;
+  margin: 0 !important;
   text-align: center !important;
 }
 
@@ -94,7 +86,8 @@
   display: block !important;
   text-align: center !important;
   list-style: none !important;
-  margin: 0.3rem 0 !important;
+  margin: 0.5rem 0 !important;
+  font-size: 0.95rem !important;
 }
 
 .author__urls-wrapper .btn--inverse {
@@ -102,19 +95,65 @@
 }
 
 /* ========================================================================
-   FOOTER - SIMPLE, NO EXTRA SPACE
+   CONTENT - RIGHT COLUMN
+   ======================================================================== */
+
+.page {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.page__inner-wrap {
+  width: 100% !important;
+}
+
+.page__content {
+  text-align: justify !important;
+  line-height: 1.8 !important;
+}
+
+.page__content p {
+  margin-bottom: 1.5rem !important;
+  text-align: justify !important;
+}
+
+/* ========================================================================
+   BUTTONS
+   ======================================================================== */
+
+.btn--primary {
+  background-color: #333 !important;
+  color: #fff !important;
+  padding: 0.85rem 2.5rem !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-top: 1.5rem !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.btn--primary:hover {
+  background-color: #555 !important;
+  color: #fff !important;
+}
+
+/* ========================================================================
+   FOOTER - MINIMAL SPACING
    ======================================================================== */
 
 .page__footer {
   background-color: #ffffff !important;
   border-top: 1px solid #e5e5e5 !important;
   margin-top: 3rem !important;
+  padding: 0 !important;
 }
 
 .page__footer footer {
-  max-width: 1200px !important;
+  max-width: 1100px !important;
   margin: 0 auto !important;
-  padding: 2rem !important;
+  padding: 2rem 3rem !important;
+  text-align: center !important;
 }
 
 .page__footer .sitemap,
@@ -129,72 +168,56 @@
 }
 
 /* ========================================================================
-   DOWNLOAD BUTTON
-   ======================================================================== */
-
-.btn--primary {
-  background-color: #333 !important;
-  color: #fff !important;
-  padding: 0.75rem 2rem !important;
-  border-radius: 4px !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-  margin-top: 1rem !important;
-}
-
-.btn--primary:hover {
-  background-color: #555 !important;
-}
-
-/* ========================================================================
-   RESPONSIVE - SHRINK PROPORTIONALLY, NEVER STACK
+   RESPONSIVE - SMART SCALING
    ======================================================================== */
 
 @media (max-width: 1200px) {
-  .page,
+  #main,
   .masthead__inner-wrap,
   .page__footer footer {
-    padding: 1.5rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
   }
 }
 
 @media (max-width: 1024px) {
+  #main {
+    gap: 2rem !important;
+  }
+  
+  .sidebar {
+    width: 240px !important;
+  }
+  
+  .author__avatar img {
+    max-width: 240px !important;
+  }
+  
+  .author__name {
+    font-size: 1.3rem !important;
+  }
+  
+  .author__urls li {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #main {
+    gap: 1.5rem !important;
+    padding-top: 2rem !important;
+  }
+  
   .sidebar {
     width: 200px !important;
   }
   
   .author__avatar img {
-    max-width: 160px !important;
+    max-width: 200px !important;
   }
   
   .author__name {
-    font-size: 1.1rem !important;
-  }
-  
-  .author__urls li {
-    font-size: 0.9rem !important;
-  }
-  
-  .page__content {
-    font-size: 0.95rem !important;
-  }
-  
-  #main {
-    gap: 1.5rem !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .sidebar {
-    width: 180px !important;
-  }
-  
-  .author__avatar img {
-    max-width: 140px !important;
-  }
-  
-  .author__name {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important;
   }
   
   .author__urls li {
@@ -202,68 +225,42 @@
   }
   
   .page__content {
-    font-size: 0.9rem !important;
-  }
-  
-  #main {
-    gap: 1.2rem !important;
+    font-size: 0.95rem !important;
   }
 }
 
 @media (max-width: 768px) {
+  #main {
+    flex-direction: column !important;
+    padding: 2rem 1.5rem !important;
+  }
+  
   .sidebar {
-    width: 160px !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
   }
   
   .author__avatar img {
-    max-width: 120px !important;
-  }
-  
-  .author__name {
-    font-size: 0.95rem !important;
-  }
-  
-  .author__urls li {
-    font-size: 0.8rem !important;
+    max-width: 250px !important;
   }
   
   .page__content {
-    font-size: 0.85rem !important;
+    text-align: left !important;
   }
   
-  #main {
-    gap: 1rem !important;
-  }
-  
-  .page,
-  .masthead__inner-wrap,
-  .page__footer footer {
-    padding: 1rem !important;
+  .page__content p {
+    text-align: left !important;
   }
 }
 
 @media (max-width: 600px) {
-  .sidebar {
-    width: 130px !important;
+  .masthead__inner-wrap,
+  .page__footer footer {
+    padding: 1rem !important;
   }
   
   .author__avatar img {
-    max-width: 100px !important;
-  }
-  
-  .author__name {
-    font-size: 0.85rem !important;
-  }
-  
-  .author__urls li {
-    font-size: 0.75rem !important;
-  }
-  
-  .page__content {
-    font-size: 0.8rem !important;
-  }
-  
-  #main {
-    gap: 0.75rem !important;
+    max-width: 200px !important;
   }
 }
