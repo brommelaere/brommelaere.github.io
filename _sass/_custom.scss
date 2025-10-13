@@ -11,8 +11,25 @@
 
 .masthead__inner-wrap {
   max-width: 1200px !important;
+  width: 100% !important;
   margin: 0 auto !important;
   padding: 1rem 2rem !important;
+}
+
+.masthead__menu {
+  width: 100% !important;
+}
+
+.greedy-nav {
+  width: 100% !important;
+}
+
+.greedy-nav .visible-links {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  width: 100% !important;
 }
 
 /* ========================================================================
