@@ -1,189 +1,173 @@
 /* ==========================================================================
-   PROPER PROFESSIONAL LAYOUT (AcademicPages / Minimal Mistakes)
+   AcademicPages / Minimal Mistakes — Home layout override
+   Desktop: avatar left (with name/location/uni/socials under it), text right
+   Small screens: avatar-only left, all text right
+   Footer: compact, visible, no extra whitespace
    ========================================================================== */
 
-/* ---------- Globals ---------- */
-:root {
-  --container: 1200px;
+/* ---------- Variables ---------- */
+:root{
+  --container: 1180px;
   --gutter: 2rem;
-  --sidebar-w: 220px;
-  --content-max: 750px;
+  --sidebar-w: 200px;
+  --content-max: 740px;
+  --footer-pad: 0.85rem;
 }
 
+/* ---------- Global reset (light touch) ---------- */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
 
-/* Sticky footer only when content is short */
+/* Body as flex column so short pages show footer at bottom (not huge) */
 html { height: 100%; }
-body {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-}
+body { min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ---------- Header ---------- */
-.masthead {
-  background: #fff !important;
-  border-bottom: 1px solid #e5e5e5 !important;
-  padding: 1rem 0 !important;
+.masthead{
+  background:#fff !important;
+  border-bottom:1px solid #e5e5e5 !important;
+  padding: 0.9rem 0 !important;
   flex: 0 0 auto;
 }
-.masthead__inner-wrap {
+.masthead__inner-wrap{
   max-width: var(--container) !important;
   margin: 0 auto !important;
   padding: 0 var(--gutter) !important;
 }
 
-/* ---------- Main (two-column grid) ---------- */
-#main {
+/* ---------- Main (two columns) ---------- */
+#main{
   max-width: var(--container) !important;
   margin: 0 auto !important;
-  padding: 2rem var(--gutter) 1rem var(--gutter) !important;
+  padding: 1.6rem var(--gutter) 0 var(--gutter) !important;
 
   display: grid !important;
-  grid-template-columns: var(--sidebar-w) 1fr;
+  grid-template-columns: var(--sidebar-w) minmax(0,1fr);
+  column-gap: 2.2rem !important;
   align-items: start;
-  column-gap: 2.5rem !important;
 
-  flex: 1 0 auto; /* fills remaining height so footer sits at bottom when short */
+  flex: 1 1 auto; /* grow to push footer down when short */
 }
 
-/* ---------- Sidebar (left column) ---------- */
-.sidebar {
+/* Minimal Mistakes sometimes wraps content; remove big padding if present */
+.page__inner-wrap{ padding: 0 !important; }
+
+/* ---------- Sidebar (left) ---------- */
+.sidebar{
   width: var(--sidebar-w) !important;
-  flex-shrink: 0 !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.author__avatar { margin-bottom: 1rem !important; }
-.author__avatar img {
+.author__avatar{ margin-bottom: 0.85rem !important; }
+.author__avatar img{
   width: 100% !important;
   max-width: var(--sidebar-w) !important;
-  height: auto !important;
   border-radius: 6px !important;
-  border: none !important;
-  display: block;
+  border: 0 !important;
 }
 
-.author__content { text-align: center !important; }
-
-.author__name {
-  font-size: 1.2rem !important;
+/* Name / location / uni / socials under image (desktop) */
+.author__content{ text-align: center !important; }
+.author__name{
+  font-size: 1.05rem !important;
   font-weight: 600 !important;
-  margin: 0 0 0.8rem 0 !important;
-  text-align: center !important;
+  margin: 0 0 0.5rem 0 !important;
 }
-
-.author__urls-wrapper { margin-bottom: 0 !important; padding-bottom: 0 !important; }
-.author__urls {
-  padding: 0 !important;
-  margin: 0 !important;
+.author__urls-wrapper{ margin: 0 !important; padding: 0 !important; }
+.author__urls{
+  margin: 0 !important; padding: 0 !important;
 }
-.author__urls li {
+.author__urls li{
   list-style: none !important;
-  display: block !important;
+  margin: 0.35rem 0 !important;
   text-align: center !important;
-  margin: 0.4rem 0 !important;
   font-size: 0.9rem !important;
 }
-.author__urls li:last-child { margin-bottom: 0 !important; }
+.author__urls li:last-child{ margin-bottom: 0 !important; }
 
-/* Hide the “Follow” toggle button */
+/* Kill the Follow toggle (saves vertical space) */
 .author__urls-wrapper .btn,
-.author__urls-wrapper .btn--inverse { display: none !important; }
+.author__urls-wrapper .btn--inverse{ display: none !important; }
 
-/* ---------- Content (right column) ---------- */
-.page {
-  min-width: 0 !important;
+/* ---------- Content (right) ---------- */
+.page{ min-width: 0 !important; }
+article.page{
   max-width: var(--content-max) !important;
 }
-article.page { max-width: var(--content-max) !important; }
 
-.page__content {
-  text-align: justify !important;
-  font-size: 1.05rem !important;
-  line-height: 1.7 !important;
+.page__content{
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  color: #222;
   overflow: visible !important;
-  padding-bottom: 0.5rem !important;
 }
-.page__content p {
-  margin-bottom: 1.3rem !important;
-  text-align: justify !important;
-}
-.page__content > *:last-child { margin-bottom: 0 !important; }
+.page__content p{ margin: 0 0 1rem 0 !important; }
+.page__content > *:last-child{ margin-bottom: 0 !important; }
 
-/* Primary button (e.g., CV) */
-.btn--primary {
-  background-color: #333 !important;
-  color: #fff !important;
-  padding: 0.75rem 2rem !important;
-  border-radius: 4px !important;
-  font-weight: 500 !important;
-  text-decoration: none !important;
-  display: inline-block !important;
+/* Primary button (CV) */
+.btn--primary{
+  background:#333 !important; color:#fff !important;
+  padding:0.65rem 1.6rem !important; border-radius:4px !important;
+  display:inline-block !important; text-decoration:none !important;
+  font-size:0.95rem !important; font-weight:500 !important;
+  margin-top: 0.6rem !important;
+}
+.btn--primary:hover{ background:#555 !important; }
+
+/* ---------- Footer (compact, always visible when short) ---------- */
+.page__footer{
+  background:#fff !important;
+  border-top:1px solid #e5e5e5 !important;
+  flex: 0 0 auto;
   margin-top: 1rem !important;
-  font-size: 0.95rem !important;
 }
-.btn--primary:hover { background-color: #555 !important; }
-
-/* ---------- Footer ---------- */
-.page__footer {
-  background: #fff !important;
-  border-top: 1px solid #e5e5e5 !important;
-  margin-top: 2rem !important;
-  flex: 0 0 auto; /* normal height, no stretching */
-}
-.page__footer footer {
+.page__footer footer{
   max-width: var(--container) !important;
   margin: 0 auto !important;
-  padding: 1rem var(--gutter) !important;
+  padding: var(--footer-pad) var(--gutter) !important;
 }
 .page__footer .sitemap,
-.page__footer-follow { display: none !important; }
-.page__footer-copyright {
-  text-align: center !important;
-  color: #666 !important;
-  font-size: 0.85rem !important;
+.page__footer-follow{ display:none !important; }
+.page__footer-copyright{
+  text-align:center !important; color:#666 !important; font-size:0.85rem !important;
 }
 
 /* ==========================================================================
-   RESPONSIVE (keep two columns; hide sidebar text on small screens)
+   RESPONSIVE — keep two columns; hide sidebar text under image
    ========================================================================== */
 
-/* Slightly narrower screens */
-@media (max-width: 1200px) {
-  :root { --container: 1080px; }
-  #main { column-gap: 2rem !important; }
+/* Slightly narrower */
+@media (max-width: 1200px){
+  :root{ --container: 1080px; --content-max: 700px; }
+  #main{ column-gap: 2rem !important; }
 }
 
-/* Tablet landscape and below */
-@media (max-width: 1024px) {
-  :root { --sidebar-w: 200px; --content-max: 720px; }
-  .page__content { font-size: 1rem !important; }
+/* Tablet */
+@media (max-width: 980px){
+  :root{ --sidebar-w: 180px; --content-max: 660px; }
+  .author__avatar img{ max-width: var(--sidebar-w) !important; }
+  .page__content{ font-size: 0.98rem !important; }
 }
 
-/* Tablet portrait and small laptops */
-@media (max-width: 900px) {
-  :root { --sidebar-w: 180px; --content-max: 680px; }
-
-  /* Hide name/location/socials under image; keep image only in sidebar */
+/* Hide all sidebar text under the image; image-only left, text right */
+@media (max-width: 900px){
   .sidebar .author__content,
-  .sidebar .author__urls-wrapper { display: none !important; }
-
-  .author__avatar img {
-    max-width: 180px !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-  .page__content { font-size: 0.97rem !important; }
+  .sidebar .author__urls-wrapper{ display: none !important; }
 }
 
-/* Phones (still two columns; tiny image) */
-@media (max-width: 600px) {
-  :root { --sidebar-w: 120px; --content-max: 560px; }
-  #main { column-gap: 1rem !important; padding: 1.25rem var(--gutter) !important; }
-  .author__avatar img { max-width: 120px !important; }
-  .page__content { text-align: left !important; }
-  .page__content p { text-align: left !important; }
+/* Small tablets / big phones (still two columns) */
+@media (max-width: 680px){
+  :root{ --sidebar-w: 120px; --content-max: 560px; --gutter: 1.25rem; }
+  #main{ column-gap: 1rem !important; padding: 1.2rem var(--gutter) 0 var(--gutter) !important; }
+  .author__avatar img{ max-width: var(--sidebar-w) !important; }
+  .page__content{ font-size: 0.97rem !important; }
+}
+
+/* Tiny phones: if it’s too tight, allow wrap but keep image left */
+@media (max-width: 440px){
+  :root{ --sidebar-w: 100px; --content-max: 520px; }
+  .author__avatar img{ max-width: var(--sidebar-w) !important; }
+  .page__content{ font-size: 0.95rem !important; line-height: 1.55 !important; }
 }
