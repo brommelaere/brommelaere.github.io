@@ -1,8 +1,4 @@
-/* PROFESSIONAL CLEAN LAYOUT */
-
-/* ========================================================================
-   RESET AND BASE
-   ======================================================================== */
+/* PROPER PROFESSIONAL LAYOUT - NO SCROLLING NEEDED */
 
 body {
   margin: 0;
@@ -10,55 +6,52 @@ body {
 }
 
 /* ========================================================================
-   HEADER - CLEAN AND CENTERED
+   HEADER
    ======================================================================== */
 
 .masthead {
   background-color: #ffffff !important;
   border-bottom: 1px solid #e5e5e5 !important;
-  padding: 1.5rem 0 !important;
+  padding: 1rem 0 !important;
 }
 
 .masthead__inner-wrap {
-  max-width: 1100px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 3rem !important;
+  padding: 0 2rem !important;
 }
 
 /* ========================================================================
-   MAIN CONTENT AREA - PROPERLY ALIGNED
+   MAIN LAYOUT - FITS ON ONE SCREEN
    ======================================================================== */
 
 #main {
-  max-width: 1100px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 3rem 3rem 2rem 3rem !important;
+  padding: 2rem 2rem 1rem 2rem !important;
   display: flex !important;
-  gap: 3rem !important;
+  gap: 2.5rem !important;
   align-items: flex-start !important;
 }
 
 /* ========================================================================
-   SIDEBAR - LEFT COLUMN
+   SIDEBAR - COMPACT AND CLEAN
    ======================================================================== */
 
 .sidebar {
-  width: 280px !important;
+  width: 220px !important;
   flex-shrink: 0 !important;
-  position: relative !important;
 }
 
 .author__avatar {
-  margin-bottom: 1.5rem !important;
-  text-align: center !important;
+  margin-bottom: 1rem !important;
 }
 
 .author__avatar img {
   width: 100% !important;
-  max-width: 280px !important;
-  border-radius: 8px !important;
+  max-width: 220px !important;
+  border-radius: 6px !important;
   border: none !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
 }
 
 .author__content {
@@ -66,28 +59,23 @@ body {
 }
 
 .author__name {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
   font-weight: 600 !important;
-  margin: 0 0 1rem 0 !important;
-  text-align: center !important;
-}
-
-.author__urls-wrapper {
+  margin: 0 0 0.8rem 0 !important;
   text-align: center !important;
 }
 
 .author__urls {
   padding: 0 !important;
   margin: 0 !important;
-  text-align: center !important;
 }
 
 .author__urls li {
   display: block !important;
   text-align: center !important;
   list-style: none !important;
-  margin: 0.5rem 0 !important;
-  font-size: 0.95rem !important;
+  margin: 0.4rem 0 !important;
+  font-size: 0.9rem !important;
 }
 
 .author__urls-wrapper .btn--inverse {
@@ -95,65 +83,60 @@ body {
 }
 
 /* ========================================================================
-   CONTENT - RIGHT COLUMN
+   CONTENT - READABLE AND FITS SCREEN
    ======================================================================== */
 
 .page {
   flex: 1 !important;
   min-width: 0 !important;
-}
-
-.page__inner-wrap {
-  width: 100% !important;
+  max-width: 750px !important;
 }
 
 .page__content {
   text-align: justify !important;
-  line-height: 1.8 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
 }
 
 .page__content p {
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1.3rem !important;
   text-align: justify !important;
 }
 
 /* ========================================================================
-   BUTTONS
+   BUTTON
    ======================================================================== */
 
 .btn--primary {
   background-color: #333 !important;
   color: #fff !important;
-  padding: 0.85rem 2.5rem !important;
+  padding: 0.75rem 2rem !important;
   border-radius: 4px !important;
   font-weight: 500 !important;
   text-decoration: none !important;
   display: inline-block !important;
-  margin-top: 1.5rem !important;
-  transition: background-color 0.3s ease !important;
+  margin-top: 1rem !important;
+  font-size: 0.95rem !important;
 }
 
 .btn--primary:hover {
   background-color: #555 !important;
-  color: #fff !important;
 }
 
 /* ========================================================================
-   FOOTER - MINIMAL SPACING
+   FOOTER - MINIMAL
    ======================================================================== */
 
 .page__footer {
   background-color: #ffffff !important;
   border-top: 1px solid #e5e5e5 !important;
-  margin-top: 3rem !important;
-  padding: 0 !important;
+  margin-top: 2rem !important;
 }
 
 .page__footer footer {
-  max-width: 1100px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 2rem 3rem !important;
-  text-align: center !important;
+  padding: 1.5rem 2rem !important;
 }
 
 .page__footer .sitemap,
@@ -164,48 +147,16 @@ body {
 .page__footer-copyright {
   text-align: center !important;
   color: #666 !important;
-  font-size: 0.9rem !important;
+  font-size: 0.85rem !important;
 }
 
 /* ========================================================================
-   RESPONSIVE - SMART SCALING
+   RESPONSIVE
    ======================================================================== */
-
-@media (max-width: 1200px) {
-  #main,
-  .masthead__inner-wrap,
-  .page__footer footer {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-  }
-}
 
 @media (max-width: 1024px) {
   #main {
     gap: 2rem !important;
-  }
-  
-  .sidebar {
-    width: 240px !important;
-  }
-  
-  .author__avatar img {
-    max-width: 240px !important;
-  }
-  
-  .author__name {
-    font-size: 1.3rem !important;
-  }
-  
-  .author__urls li {
-    font-size: 0.9rem !important;
-  }
-}
-
-@media (max-width: 900px) {
-  #main {
-    gap: 1.5rem !important;
-    padding-top: 2rem !important;
   }
   
   .sidebar {
@@ -216,12 +167,22 @@ body {
     max-width: 200px !important;
   }
   
-  .author__name {
-    font-size: 1.2rem !important;
+  .page__content {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 180px !important;
   }
   
-  .author__urls li {
-    font-size: 0.85rem !important;
+  .author__avatar img {
+    max-width: 180px !important;
+  }
+  
+  .author__name {
+    font-size: 1.1rem !important;
   }
   
   .page__content {
@@ -232,17 +193,13 @@ body {
 @media (max-width: 768px) {
   #main {
     flex-direction: column !important;
-    padding: 2rem 1.5rem !important;
+    padding: 1.5rem !important;
   }
   
   .sidebar {
     width: 100% !important;
-    max-width: 300px !important;
-    margin: 0 auto !important;
-  }
-  
-  .author__avatar img {
     max-width: 250px !important;
+    margin: 0 auto !important;
   }
   
   .page__content {
@@ -251,16 +208,5 @@ body {
   
   .page__content p {
     text-align: left !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .masthead__inner-wrap,
-  .page__footer footer {
-    padding: 1rem !important;
-  }
-  
-  .author__avatar img {
-    max-width: 200px !important;
   }
 }
