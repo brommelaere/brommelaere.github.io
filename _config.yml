@@ -11,7 +11,7 @@ repository               : "yourusername/yourusername.github.io" # CHANGE: Repla
 
 # Site Author
 author:
-  avatar           : "profile.jpg"
+  avatar           : "profile.jpeg"
   name             : "Ben Rommelaere"
   bio              : "PhD Candidate in Economics"
   location         : "Toronto, Canada"
