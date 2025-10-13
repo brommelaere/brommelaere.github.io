@@ -1,107 +1,231 @@
-/* ======================= HARD OVERRIDES (HOME/SINGLE) =======================
-   Desktop: image left with meta under it; text right. Normal scroll to footer.
-   Small screens: image-only left (larger + centered); text right.
-   Uses .layout--single to outrank Minimal Mistakes defaults.
-=============================================================================*/
+/* CLEAN PROFESSIONAL LAYOUT - PROPERLY ALIGNED */
 
-/* --- Vars --- */
-:root{
-  --container: 1160px;
-  --gutter: 24px;
-  --sidebar-desktop: clamp(170px, 20vw, 210px);
-  --sidebar-mobile: clamp(200px, 40vw, 280px);  /* BIGGER photo on small screens */
-  --content-max: 760px;
+:root {
+  --max-width: 1100px;
+  --padding: 2rem;
+  --sidebar-desktop: 200px;
+  --sidebar-small: 180px;
+  --gap: 2.5rem;
 }
 
-/* Header */
-.layout--single .masthead{
-  background:#fff !important; border-bottom:1px solid #e5e5e5 !important; padding:14px 0 !important;
-}
-.layout--single .masthead__inner-wrap{ max-width:var(--container) !important; margin:0 auto !important; padding:0 var(--gutter) !important; }
+/* ========================================================================
+   HEADER - CENTERED
+   ======================================================================== */
 
-/* Main (two-column grid) */
-.layout--single #main{
-  max-width:var(--container) !important;
-  margin:0 auto !important;
-  padding:20px var(--gutter) 0 var(--gutter) !important;
-
-  display:grid !important;
-  grid-template-columns: var(--sidebar-desktop) minmax(0,1fr);
-  column-gap: 32px !important;
-  align-items:start;
+.layout--single .masthead {
+  background: #fff !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+  padding: 1rem 0 !important;
 }
 
-/* Sidebar (never sticky) */
-.layout--single .sidebar,
-.layout--single .sidebar.sticky{
+.layout--single .masthead__inner-wrap {
+  max-width: var(--max-width) !important;
+  margin: 0 auto !important;
+  padding: 0 var(--padding) !important;
+}
+
+/* ========================================================================
+   MAIN - SIDE BY SIDE, ALIGNED AT TOP
+   ======================================================================== */
+
+.layout--single #main {
+  max-width: var(--max-width) !important;
+  margin: 0 auto !important;
+  padding: 2.5rem var(--padding) 2rem !important;
+  display: grid !important;
+  grid-template-columns: var(--sidebar-desktop) 1fr !important;
+  gap: var(--gap) !important;
+  align-items: start !important;
+}
+
+/* ========================================================================
+   SIDEBAR - IMAGE + META UNDER IT
+   ======================================================================== */
+
+.layout--single .sidebar {
   position: static !important;
   width: var(--sidebar-desktop) !important;
-  margin:0 !important; padding:0 !important;
-  overflow: visible !important;
-}
-.layout--single .author__avatar{ margin: 0 auto 10px auto !important; }
-.layout--single .author__avatar img{
-  width:100% !important; max-width:var(--sidebar-desktop) !important; height:auto !important;
-  border-radius:8px !important; border:0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Meta under image (compact so it never gets clipped) */
-.layout--single .author__content{ text-align:center !important; }
-.layout--single .author__name{ font-size:1rem !important; font-weight:600 !important; line-height:1.2 !important; margin:0 0 6px 0 !important; }
-.layout--single .author__urls-wrapper{ margin:0 !important; padding:0 !important; }
-.layout--single .author__urls{ margin:0 !important; padding:0 !important; }
-.layout--single .author__urls li{ list-style:none !important; margin:4px 0 !important; line-height:1.2 !important; font-size:.92rem !important; text-align:center !important; }
+.layout--single .author__avatar {
+  margin: 0 0 1rem 0 !important;
+  text-align: center !important;
+}
+
+.layout--single .author__avatar img {
+  width: 100% !important;
+  max-width: var(--sidebar-desktop) !important;
+  border-radius: 6px !important;
+  border: none !important;
+}
+
+.layout--single .author__content {
+  text-align: center !important;
+}
+
+.layout--single .author__name {
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  margin: 0 0 0.8rem 0 !important;
+  line-height: 1.3 !important;
+}
+
+.layout--single .author__urls-wrapper {
+  margin: 0 !important;
+}
+
+.layout--single .author__urls {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.layout--single .author__urls li {
+  display: block !important;
+  list-style: none !important;
+  text-align: center !important;
+  margin: 0.35rem 0 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+}
+
+/* HIDE FOLLOW BUTTON */
+.layout--single .author__urls-wrapper button,
 .layout--single .author__urls-wrapper .btn,
-.layout--single .author__urls-wrapper .btn--inverse{ display:none !important; }
-
-/* Right column */
-.layout--single article.page{ max-width:var(--content-max) !important; }
-.layout--single .page__content{ font-size:1rem !important; line-height:1.6 !important; color:#222; }
-.layout--single .page__content p{ margin:0 0 1rem 0 !important; }
-.layout--single .page__content > *:last-child{ margin-bottom:0 !important; }
-
-/* CV button */
-.layout--single .btn--primary{
-  background:#333 !important; color:#fff !important; padding:.62rem 1.5rem !important; border-radius:4px !important;
-  font-size:.95rem !important; font-weight:500 !important; text-decoration:none !important; display:inline-block !important; margin-top:.65rem !important;
+.layout--single .author__urls-wrapper .btn--inverse {
+  display: none !important;
 }
-.layout--single .btn--primary:hover{ background:#555 !important; }
 
-/* Footer (normal; not forced into view) */
-.layout--single .page__footer{
-  background:#fff !important; border-top:1px solid #e5e5e5 !important; margin-top:18px !important;
+/* ========================================================================
+   CONTENT - RIGHT SIDE, PROPER WIDTH
+   ======================================================================== */
+
+.layout--single article.page {
+  max-width: 700px !important;
+  margin: 0 !important;
 }
-.layout--single .page__footer footer{ max-width:var(--container) !important; margin:0 auto !important; padding:12px var(--gutter) !important; }
+
+.layout--single .page__inner-wrap {
+  width: 100% !important;
+}
+
+.layout--single .page__content {
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  color: #333 !important;
+  text-align: justify !important;
+}
+
+.layout--single .page__content p {
+  margin: 0 0 1.2rem 0 !important;
+}
+
+/* ========================================================================
+   BUTTON
+   ======================================================================== */
+
+.layout--single .btn--primary {
+  background: #333 !important;
+  color: #fff !important;
+  padding: 0.7rem 2rem !important;
+  border-radius: 4px !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-top: 0.8rem !important;
+}
+
+.layout--single .btn--primary:hover {
+  background: #555 !important;
+}
+
+/* ========================================================================
+   FOOTER
+   ======================================================================== */
+
+.layout--single .page__footer {
+  background: #fff !important;
+  border-top: 1px solid #e5e5e5 !important;
+  margin-top: 2.5rem !important;
+}
+
+.layout--single .page__footer footer {
+  max-width: var(--max-width) !important;
+  margin: 0 auto !important;
+  padding: 1.5rem var(--padding) !important;
+}
+
 .layout--single .page__footer .sitemap,
-.layout--single .page__footer-follow{ display:none !important; }
-.layout--single .page__footer-copyright{ text-align:center !important; color:#666 !important; font-size:.86rem !important; }
-
-/* =============================== RESPONSIVE =============================== */
-
-/* Tablet & small laptops — make image BIGGER and center it; hide meta */
-@media (max-width: 900px){
-  .layout--single #main{
-    grid-template-columns: var(--sidebar-mobile) minmax(0,1fr) !important;
-    column-gap: 18px !important;
-    padding:16px var(--gutter) 0 !important;
-  }
-  .layout--single .sidebar,
-  .layout--single .sidebar.sticky{
-    width: var(--sidebar-mobile) !important;
-    display:flex !important; justify-content:center !important;
-  }
-  .layout--single .author__avatar{ margin:0 !important; }
-  .layout--single .author__avatar img{ width: var(--sidebar-mobile) !important; max-width:none !important; }
-
-  /* image-only left on small screens */
-  .layout--single .sidebar .author__content,
-  .layout--single .sidebar .author__urls-wrapper{ display:none !important; }
+.layout--single .page__footer-follow {
+  display: none !important;
 }
 
-/* Narrow phones */
-@media (max-width: 520px){
-  .layout--single #main{ column-gap: 14px !important; }
-  .layout--single .page__content{ font-size:.97rem !important; line-height:1.58 !important; }
+.layout--single .page__footer-copyright {
+  text-align: center !important;
+  color: #666 !important;
+  font-size: 0.85rem !important;
 }
 
-.page__footer{ display:none !important; }
+/* ========================================================================
+   RESPONSIVE - SMALLER SCREENS
+   ======================================================================== */
+
+/* Small laptops and tablets - keep side by side, smaller image, HIDE meta */
+@media (max-width: 900px) {
+  :root {
+    --sidebar-small: 160px;
+    --gap: 2rem;
+  }
+  
+  .layout--single #main {
+    grid-template-columns: var(--sidebar-small) 1fr !important;
+    gap: var(--gap) !important;
+    padding: 2rem var(--padding) 1.5rem !important;
+  }
+  
+  .layout--single .sidebar {
+    width: var(--sidebar-small) !important;
+  }
+  
+  .layout--single .author__avatar img {
+    max-width: var(--sidebar-small) !important;
+  }
+  
+  /* HIDE name and meta on small screens - just show image */
+  .layout--single .author__content,
+  .layout--single .author__urls-wrapper {
+    display: none !important;
+  }
+  
+  .layout--single .author__avatar {
+    margin: 0 !important;
+  }
+  
+  .layout--single .page__content {
+    font-size: 1rem !important;
+  }
+}
+
+/* Very small screens - keep side by side with smaller image */
+@media (max-width: 600px) {
+  :root {
+    --padding: 1rem;
+    --sidebar-small: 120px;
+    --gap: 1.2rem;
+  }
+  
+  .layout--single #main {
+    padding: 1.5rem var(--padding) 1rem !important;
+  }
+  
+  .layout--single .page__content {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+  
+  .layout--single .page__content p {
+    text-align: left !important;
+  }
+}
