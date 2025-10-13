@@ -5,9 +5,9 @@ title                    : "Ben Rommelaere"
 title_separator          : "-"
 name                     : &name "Ben Rommelaere"
 description              : &description "PhD Candidate in Economics at the University of Toronto"
-url                      : https://yourusername.github.io # CHANGE: Replace yourusername
+url                      : https://brommelaere.github.io # CHANGE: Replace yourusername
 baseurl                  : ""
-repository               : "yourusername/yourusername.github.io" # CHANGE: Replace yourusername
+repository               : "brommelaere/brommelaere.github.io" # CHANGE: Replace yourusername
 
 # Site Author
 author:
