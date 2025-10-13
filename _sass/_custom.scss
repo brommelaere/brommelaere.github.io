@@ -1,4 +1,87 @@
-/* Simplify header */
+/* Custom CSS for Ben Rommelaere's site */
+
+/* Fix footer - white background, remove sitemap */
+.page__footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e5e5e5;
+}
+
+.page__footer-follow {
+  display: none !important;
+}
+
+.page__footer .sitemap {
+  display: none !important;
+}
+
+/* Center and constrain content width */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.masthead__inner-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.page__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Fix author profile photo - larger, rectangular, no border */
+.author__avatar img {
+  width: 100% !important;
+  max-width: 300px !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  border: none !important;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+.author__avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Hide "PhD Candidate in Economics" subtitle under name */
+.author__bio {
+  display: none !important;
+}
+
+/* Center author information */
+.author__content {
+  text-align: center;
+}
+
+.author__name {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.author__urls {
+  text-align: center;
+}
+
+.author__urls li {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+/* Hide theme toggle gear icon */
+#theme-toggle {
+  display: none !important;
+}
+
+.greedy-nav__toggle {
+  display: none !important;
+}
+
+/* Improve header layout */
 .masthead {
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
@@ -13,30 +96,17 @@
   background: transparent;
 }
 
-/* Simplify footer */
-.page__footer {
-  background-color: #ffffff;
-  border-top: 1px solid #e5e5e5;
-}
-
-/* Clean sidebar */
-.author__avatar {
-  border-radius: 8px;
-}
-
-.author__urls {
-  margin-top: 1rem;
-}
-
-/* Improve button styling */
-.btn--primary {
-  background-color: #333333;
-  color: #ffffff;
-  padding: 0.75rem 2rem;
-  border-radius: 4px;
-  font-weight: 500;
-}
-
-.btn--primary:hover {
-  background-color: #555555;
+/* Responsive layout */
+@media (max-width: 768px) {
+  .author__avatar img {
+    max-width: 200px !important;
+  }
+  
+  .masthead__inner-wrap {
+    padding: 0 1rem;
+  }
+  
+  .page__content {
+    padding: 0 1rem;
+  }
 }
