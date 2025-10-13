@@ -65,3 +65,5 @@
   .layout--single .sidebar .author__content,
   .layout--single .sidebar .author__urls-wrapper { display: none !important; }
 }
+body.no-footer .page__footer { display: none !important; }
+
