@@ -8,7 +8,7 @@ description              : &description "PhD Candidate in Economics at the Unive
 url                      : https://brommelaere.github.io # CHANGE: Replace yourusername
 baseurl                  : ""
 repository               : "brommelaere/brommelaere.github.io" # CHANGE: Replace yourusername
-
+theme_toggle: false
 # Site Author
 author:
   avatar           : "profile.jpeg"
