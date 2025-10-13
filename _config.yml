@@ -13,7 +13,7 @@ theme_toggle: false
 author:
   avatar           : "profile.jpeg"
   name             : "Ben Rommelaere"
-  bio              : "PhD Candidate in Economics"
+  bio              : ""
   location         : "Toronto, Canada"
   employer         : "University of Toronto"
   email            : # Add your email if you want
