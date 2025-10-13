@@ -1,7 +1,6 @@
 ---
 permalink: /
 classes: no-footer
-layout: single-no-footer
 title: ""
 excerpt: "About me"
 author_profile: true
