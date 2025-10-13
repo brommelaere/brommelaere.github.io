@@ -1,7 +1,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-theme: "minimal-mistakes-jekyll"
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 title                    : "Ben Rommelaere"
 title_separator          : "-"
 name                     : &name "Ben Rommelaere"
@@ -132,6 +132,8 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-include-cache
+  - jekyll-remote-theme
 
 # Archives
 category_archive:
