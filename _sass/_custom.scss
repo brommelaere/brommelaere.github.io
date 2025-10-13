@@ -1,112 +1,113 @@
-/* Custom CSS for Ben Rommelaere's site */
+/* CUSTOM CSS FOR BEN ROMMELAERE'S SITE */
 
-/* Fix footer - white background, remove sitemap */
-.page__footer {
-  background-color: #ffffff !important;
-  border-top: 1px solid #e5e5e5;
+/* FIX PROFILE IMAGE - Make it rectangular, larger, no circle border */
+.author__avatar {
+  display: table-cell;
+  vertical-align: top;
+  width: 300px !important;
+  height: auto !important;
+  
+  img {
+    max-width: 300px !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;  /* Slight rounded corners, not circle */
+    border: none !important;
+  }
 }
 
+/* CENTER EVERYTHING UNDER THE NAME */
+.author__content {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.author__name {
+  text-align: center !important;
+  margin-top: 1rem !important;
+}
+
+.author__urls-wrapper {
+  text-align: center !important;
+}
+
+.author__urls {
+  li {
+    display: block !important;
+    text-align: center !important;
+  }
+}
+
+/* HIDE THE FOLLOW BUTTON */
+.author__urls-wrapper .btn {
+  display: none !important;
+}
+
+/* FIX FOOTER - WHITE BACKGROUND, REMOVE SITEMAP */
+.page__footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e5e5e5 !important;
+  
+  footer {
+    background-color: #ffffff !important;
+  }
+}
+
+/* Hide sitemap text completely */
+.page__footer .sitemap,
 .page__footer-follow {
   display: none !important;
 }
 
-.page__footer .sitemap {
-  display: none !important;
+/* Style footer copyright */
+.page__footer-copyright {
+  text-align: center !important;
+  padding: 2rem 0 !important;
+  color: #666 !important;
+  background-color: #ffffff !important;
 }
 
-/* Center and constrain content width */
-.page {
-  max-width: 1200px;
-  margin: 0 auto;
+/* CENTER HEADER AND CONSTRAIN WIDTH */
+.masthead {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e5e5e5 !important;
 }
 
 .masthead__inner-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+/* CENTER MAIN CONTENT AND ALIGN WITH HEADER */
+.page__inner-wrap {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
 }
 
 .page__content {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 800px !important;
+  margin-left: 340px !important; /* Account for sidebar width */
 }
 
-/* Fix author profile photo - larger, rectangular, no border */
-.author__avatar img {
-  width: 100% !important;
-  max-width: 300px !important;
-  height: auto !important;
-  border-radius: 8px !important;
-  border: none !important;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-}
-
-.author__avatar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem !important;
-}
-
-/* Hide "PhD Candidate in Economics" subtitle under name */
-.author__bio {
-  display: none !important;
-}
-
-/* Center author information */
-.author__content {
-  text-align: center;
-}
-
-.author__name {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.author__urls {
-  text-align: center;
-}
-
-.author__urls li {
-  display: block;
-  margin: 0.5rem 0;
-}
-
-/* Hide theme toggle gear icon */
-#theme-toggle {
-  display: none !important;
-}
-
-.greedy-nav__toggle {
-  display: none !important;
-}
-
-/* Improve header layout */
-.masthead {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.site-title {
-  font-weight: 600;
-}
-
-.greedy-nav a {
-  color: #000000;
-  background: transparent;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-  .author__avatar img {
-    max-width: 200px !important;
-  }
-  
-  .masthead__inner-wrap {
-    padding: 0 1rem;
-  }
-  
+/* Make layout responsive */
+@media (max-width: 1024px) {
   .page__content {
-    padding: 0 1rem;
+    margin-left: 300px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page__content {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  .author__avatar {
+    width: 200px !important;
+    
+    img {
+      max-width: 200px !important;
+    }
   }
 }
