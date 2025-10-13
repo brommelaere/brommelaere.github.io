@@ -210,3 +210,39 @@ body {
     text-align: left !important;
   }
 }
+
+/* Make footer stick to bottom when content is short (no scroll on fullscreen) */
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; min-height: 100vh; }
+.masthead { flex: 0 0 auto; }
+#main { flex: 1 0 auto; }                 /* content stretches to fill */
+.page__footer { flex: 0 0 auto; margin-top: 0 !important; }
+
+/* Tighten sidebar spacing and remove stray bottom whitespace */
+.sidebar { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+.author__urls-wrapper { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+.author__urls { margin-bottom: 0 !important; }
+.author__urls li:last-child { margin-bottom: 0 !important; }
+.page__content > *:last-child { margin-bottom: 0 !important; }
+
+/* Keep two columns and let the article take the remaining width */
+#main { display: flex !important; gap: 2rem !important; align-items: flex-start !important; }
+.sidebar { flex: 0 0 auto !important; }   /* fixed-ish left column */
+article.page { flex: 1 1 0 !important; }  /* fluid right column */
+
+/* Desktop: leave name/location/socials under the image (DOM order already correct) */
+.author__content, .author__urls-wrapper { display: block; }
+
+/* Small screens: show only the image on the left; move all text to the right column */
+@media (max-width: 900px) {
+  .sidebar .author__content,
+  .sidebar .author__urls-wrapper {
+    display: none !important;             /* hide name/location/socials under image */
+  }
+  .sidebar { width: auto !important; max-width: none !important; }
+  .author__avatar img { max-width: 120px !important; width: 120px !important; height: auto !important; }
+  #main { gap: 1rem !important; }         /* tighter gap on small screens */
+}
+
+/* Optional: remove the “Follow” toggle button to avoid any leftover spacing */
+.author__urls-wrapper .btn { display: none !important; }
