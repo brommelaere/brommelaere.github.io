@@ -182,7 +182,50 @@
    RESPONSIVE DESIGN
    ======================================================================== */
 
+/* Keep side-by-side layout on medium screens, just scale down */
+@media (max-width: 1280px) {
+  .page,
+  .masthead__inner-wrap,
+  .page__footer footer {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  
+  .sidebar {
+    width: 220px !important;
+    min-width: 220px !important;
+  }
+  
+  .author__avatar img {
+    max-width: 180px !important;
+  }
+  
+  .author__urls li {
+    font-size: 0.85rem !important;
+  }
+}
+
 @media (max-width: 1024px) {
+  .sidebar {
+    width: 200px !important;
+    min-width: 200px !important;
+  }
+  
+  .author__avatar img {
+    max-width: 160px !important;
+  }
+  
+  #main {
+    gap: 1rem !important;
+  }
+  
+  .page {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Only stack on mobile screens */
+@media (max-width: 768px) {
   #main {
     flex-direction: column !important;
   }
@@ -194,19 +237,13 @@
   }
   
   .author__avatar img {
-    max-width: 180px !important;
+    max-width: 150px !important;
   }
-}
-
-@media (max-width: 768px) {
+  
   .page,
   .masthead__inner-wrap,
   .page__footer footer {
     padding: 1rem !important;
-  }
-  
-  .author__avatar img {
-    max-width: 150px !important;
   }
   
   .page__content {
