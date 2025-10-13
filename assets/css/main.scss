@@ -2,5 +2,4 @@
 # Only the main Sass file needs front matter
 ---
 @import "minimal-mistakes/skins/air";
-@import "minimal-mistakes";   /* theme core */
-@import "custom";             /* <-- YOUR overrides, MUST be last */
+@import "minimal-mistakes";
