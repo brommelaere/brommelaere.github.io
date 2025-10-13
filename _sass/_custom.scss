@@ -1,7 +1,7 @@
-/* COMPLETE CUSTOM CSS FOR BEN ROMMELAERE'S SITE */
+/* SIMPLE CLEAN CSS FOR BEN ROMMELAERE */
 
 /* ========================================================================
-   FIX HEADER - CENTERED, NAVIGATION ALWAYS VISIBLE
+   HEADER - SIMPLE, CENTERED, NAVIGATION VISIBLE
    ======================================================================== */
 
 .masthead {
@@ -11,122 +11,83 @@
 
 .masthead__inner-wrap {
   max-width: 1200px !important;
-  width: 100% !important;
   margin: 0 auto !important;
   padding: 1rem 2rem !important;
 }
 
 /* ========================================================================
-   FIX LAYOUT - SIDEBAR AND CONTENT SIDE BY SIDE ALWAYS
+   MAIN LAYOUT - SIDEBAR LEFT, CONTENT RIGHT
    ======================================================================== */
-
-/* Remove default padding that causes white space */
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-}
 
 .page {
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 2rem !important;
-  min-height: 0 !important;
-  overflow: visible !important;
 }
 
 #main {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
   display: flex !important;
   flex-direction: row !important;
   align-items: flex-start !important;
-  gap: 1.5rem !important;
-  min-height: 0 !important;
-  overflow: visible !important;
+  gap: 2rem !important;
+  width: 100% !important;
 }
 
+/* Sidebar - left side, fixed width */
+.sidebar {
+  width: 250px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Content - right side, takes remaining space */
 .page__inner-wrap {
   flex: 1 !important;
-  max-width: 100% !important;
-  min-height: 0 !important;
-  overflow: visible !important;
+  min-width: 0 !important;
 }
 
 .page__content {
-  width: 100% !important;
-  max-width: 100% !important;
   text-align: justify !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: visible !important;
 }
 
 .page__content p {
   text-align: justify !important;
-  margin-bottom: 1.5em !important;
   line-height: 1.8 !important;
-}
-
-/* Sidebar - fixed width, never stacks, never cut off */
-.sidebar {
-  width: 250px !important;
-  min-width: 250px !important;
-  max-width: 250px !important;
-  flex-shrink: 0 !important;
-  position: relative !important;
-  height: auto !important;
-  padding-top: 0 !important;
-  overflow: visible !important;
+  margin-bottom: 1.5em !important;
 }
 
 /* ========================================================================
-   FIX PROFILE IMAGE - RECTANGULAR, NO CIRCLE
+   SIDEBAR - IMAGE AND INFO
    ======================================================================== */
 
 .author__avatar {
-  display: flex !important;
-  justify-content: center !important;
-  width: 100% !important;
+  text-align: center !important;
   margin-bottom: 1rem !important;
 }
 
 .author__avatar img {
-  max-width: 200px !important;
   width: 100% !important;
-  height: auto !important;
+  max-width: 200px !important;
   border-radius: 8px !important;
   border: none !important;
-  padding: 0 !important;
 }
-
-/* ========================================================================
-   CENTER TEXT UNDER PHOTO
-   ======================================================================== */
 
 .author__content {
   text-align: center !important;
-  width: 100% !important;
-  padding: 0 !important;
 }
 
 .author__name {
   text-align: center !important;
-  margin: 0.5rem 0 !important;
   font-size: 1.3rem !important;
-  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .author__urls-wrapper {
   text-align: center !important;
-  margin-top: 0.5rem !important;
 }
 
 .author__urls {
-  text-align: center !important;
   padding: 0 !important;
-  margin: 0 !important;
+  text-align: center !important;
 }
 
 .author__urls li {
@@ -134,7 +95,6 @@ body {
   text-align: center !important;
   list-style: none !important;
   margin: 0.3rem 0 !important;
-  font-size: 0.9rem !important;
 }
 
 .author__urls-wrapper .btn--inverse {
@@ -142,27 +102,22 @@ body {
 }
 
 /* ========================================================================
-   FIX FOOTER - WHITE, NO EXTRA SPACE
+   FOOTER - SIMPLE, NO EXTRA SPACE
    ======================================================================== */
 
 .page__footer {
   background-color: #ffffff !important;
   border-top: 1px solid #e5e5e5 !important;
-  margin-top: 2rem !important;
-  padding: 0 !important;
+  margin-top: 3rem !important;
 }
 
 .page__footer footer {
-  background-color: #ffffff !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 1.5rem 2rem !important;
+  padding: 2rem !important;
 }
 
-.page__footer .sitemap {
-  display: none !important;
-}
-
+.page__footer .sitemap,
 .page__footer-follow {
   display: none !important;
 }
@@ -170,28 +125,11 @@ body {
 .page__footer-copyright {
   text-align: center !important;
   color: #666 !important;
-  background-color: #ffffff !important;
   font-size: 0.9rem !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 /* ========================================================================
-   REMOVE ALL EXTRA WHITE SPACE
-   ======================================================================== */
-
-.initial-content {
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-  min-height: 0 !important;
-}
-
-.layout--single {
-  min-height: 0 !important;
-}
-
-/* ========================================================================
-   DOWNLOAD CV BUTTON
+   DOWNLOAD BUTTON
    ======================================================================== */
 
 .btn--primary {
@@ -199,7 +137,6 @@ body {
   color: #fff !important;
   padding: 0.75rem 2rem !important;
   border-radius: 4px !important;
-  font-weight: 500 !important;
   text-decoration: none !important;
   display: inline-block !important;
   margin-top: 1rem !important;
@@ -207,50 +144,23 @@ body {
 
 .btn--primary:hover {
   background-color: #555 !important;
-  color: #fff !important;
 }
 
 /* ========================================================================
-   RESPONSIVE - SCALE DOWN, NEVER STACK
+   RESPONSIVE - SHRINK PROPORTIONALLY, NEVER STACK
    ======================================================================== */
 
-@media (max-width: 1280px) {
+@media (max-width: 1200px) {
   .page,
   .masthead__inner-wrap,
   .page__footer footer {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-  }
-  
-  .sidebar {
-    width: 220px !important;
-    min-width: 220px !important;
-    max-width: 220px !important;
-  }
-  
-  .author__avatar img {
-    max-width: 180px !important;
-  }
-  
-  .author__name {
-    font-size: 1.2rem !important;
-  }
-  
-  .author__urls li {
-    font-size: 0.85rem !important;
-  }
-  
-  .page__content,
-  .page__content p {
-    font-size: 0.95rem !important;
+    padding: 1.5rem !important;
   }
 }
 
 @media (max-width: 1024px) {
   .sidebar {
     width: 200px !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
   }
   
   .author__avatar img {
@@ -262,24 +172,21 @@ body {
   }
   
   .author__urls li {
-    font-size: 0.8rem !important;
-  }
-  
-  .page {
-    padding: 1.5rem !important;
-  }
-  
-  .page__content,
-  .page__content p {
     font-size: 0.9rem !important;
+  }
+  
+  .page__content {
+    font-size: 0.95rem !important;
+  }
+  
+  #main {
+    gap: 1.5rem !important;
   }
 }
 
 @media (max-width: 900px) {
   .sidebar {
     width: 180px !important;
-    min-width: 180px !important;
-    max-width: 180px !important;
   }
   
   .author__avatar img {
@@ -291,20 +198,21 @@ body {
   }
   
   .author__urls li {
-    font-size: 0.75rem !important;
+    font-size: 0.85rem !important;
   }
   
-  .page__content,
-  .page__content p {
-    font-size: 0.85rem !important;
+  .page__content {
+    font-size: 0.9rem !important;
+  }
+  
+  #main {
+    gap: 1.2rem !important;
   }
 }
 
 @media (max-width: 768px) {
   .sidebar {
     width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
   }
   
   .author__avatar img {
@@ -312,11 +220,19 @@ body {
   }
   
   .author__name {
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
   }
   
   .author__urls li {
-    font-size: 0.7rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .page__content {
+    font-size: 0.85rem !important;
+  }
+  
+  #main {
+    gap: 1rem !important;
   }
   
   .page,
@@ -324,18 +240,11 @@ body {
   .page__footer footer {
     padding: 1rem !important;
   }
-  
-  .page__content,
-  .page__content p {
-    font-size: 0.8rem !important;
-  }
 }
 
 @media (max-width: 600px) {
   .sidebar {
-    width: 140px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
+    width: 130px !important;
   }
   
   .author__avatar img {
@@ -347,11 +256,14 @@ body {
   }
   
   .author__urls li {
-    font-size: 0.65rem !important;
+    font-size: 0.75rem !important;
   }
   
-  .page__content,
-  .page__content p {
-    font-size: 0.75rem !important;
+  .page__content {
+    font-size: 0.8rem !important;
+  }
+  
+  #main {
+    gap: 0.75rem !important;
   }
 }
