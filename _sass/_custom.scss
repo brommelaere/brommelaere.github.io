@@ -1,30 +1,29 @@
 /* ==========================================================================
-   AcademicPages / Minimal Mistakes — Home layout hard override
+   AcademicPages / Minimal Mistakes — Home overrides
+   Desktop: image left (with meta under it), text right
+   Small screens: image-only left (bigger + centered), text right
+   Footer: normal (no forced stickiness), page may scroll to it
    ========================================================================== */
 
-/* ---------- Variables ---------- */
+/* ---- Vars ---- */
 :root{
   --container: 1160px;
-  --gutter: 2rem;
-  --sidebar-w: 180px;   /* desktop avatar column */
-  --content-max: 720px; /* readable right column width */
-  --footer-pad: 0.85rem;
+  --gutter: 24px;
+  /* Left column scales with viewport but clamps to sensible sizes */
+  --sidebar-col: clamp(170px, 22vw, 210px);
+  --content-max: 760px;
+  --footer-pad: 14px;
 }
 
-/* ---------- Low-impact reset ---------- */
-*{ box-sizing: border-box; }
-html, body{ margin:0; padding:0; }
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
 img{ max-width:100%; height:auto; display:block; }
 
-/* Let the page scroll when it needs to (prevents clipping) */
-body{ display:flex; flex-direction:column; min-height:100vh; }
-
-/* ---------- Header ---------- */
+/* ---- Header ---- */
 .masthead{
   background:#fff !important;
   border-bottom:1px solid #e5e5e5 !important;
-  padding:.9rem 0 !important;
-  flex:0 0 auto;
+  padding: 14px 0 !important;
 }
 .masthead__inner-wrap{
   max-width:var(--container) !important;
@@ -32,45 +31,47 @@ body{ display:flex; flex-direction:column; min-height:100vh; }
   padding:0 var(--gutter) !important;
 }
 
-/* ---------- Main: 2-column grid ---------- */
+/* ---- Main: two-column grid ---- */
 #main{
   max-width:var(--container) !important;
   margin:0 auto !important;
-  padding:1.5rem var(--gutter) 0 var(--gutter) !important;
+  padding: 20px var(--gutter) 0 var(--gutter) !important;
 
   display:grid !important;
-  grid-template-columns: var(--sidebar-w) minmax(0,1fr);
-  column-gap:2rem !important;
+  grid-template-columns: var(--sidebar-col) minmax(0,1fr);
+  column-gap: 36px !important;
   align-items:start;
-
-  flex:1 1 auto;  /* stretch if short, but allow page to scroll if tall */
 }
 
-/* MM extra padding — trim it */
+/* Trim MM extra padding */
 .page__inner-wrap{ padding:0 !important; }
 
-/* ---------- Sidebar (left) ---------- */
+/* ---- Sidebar (left) ---- */
 .sidebar{
-  width:var(--sidebar-w) !important;
+  width: var(--sidebar-col) !important;
+  position: static !important;      /* never sticky/fixed — prevents clipping */
+  overflow: visible !important;
   margin:0 !important; padding:0 !important;
-  align-self:start;
+  justify-self: start;
 }
 
-.author__avatar{ margin-bottom:.7rem !important; }
+.author__avatar{
+  margin: 0 auto 12px auto !important;  /* center the photo block */
+}
 .author__avatar img{
-  width:100% !important;
-  max-width:var(--sidebar-w) !important;
-  border-radius:8px !important;
-  border:0 !important;
+  width: 100% !important;
+  max-width: var(--sidebar-col) !important;
+  border-radius: 8px !important;
+  border: 0 !important;
 }
 
-/* Meta under image — tighter so it fits above the footer on desktop */
+/* Meta (name/location/uni/socials) under image — compact so it fits cleanly */
 .author__content{ text-align:center !important; }
 .author__name{
-  font-size:1rem !important;
-  font-weight:600 !important;
-  line-height:1.25 !important;
-  margin:0 0 .35rem 0 !important;
+  margin: 0 0 6px 0 !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
 }
 .author__urls-wrapper{ margin:0 !important; padding:0 !important; }
 .author__urls{
@@ -78,96 +79,84 @@ body{ display:flex; flex-direction:column; min-height:100vh; }
 }
 .author__urls li{
   list-style:none !important;
-  margin:.25rem 0 !important;
+  margin: 4px 0 !important;
   line-height:1.25 !important;
-  font-size:.9rem !important;
+  font-size: .92rem !important;
   text-align:center !important;
 }
 .author__urls li:last-child{ margin-bottom:0 !important; }
-
-/* Remove “Follow” button */
+/* kill the Follow toggle */
 .author__urls-wrapper .btn,
 .author__urls-wrapper .btn--inverse{ display:none !important; }
 
-/* ---------- Content (right) ---------- */
+/* ---- Content (right) ---- */
 .page{ min-width:0 !important; }
-article.page{ max-width:var(--content-max) !important; }
+article.page{ max-width: var(--content-max) !important; }
 
 .page__content{
-  font-size:.98rem !important;     /* slightly smaller to reduce height */
-  line-height:1.62 !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
   color:#222;
 }
-.page__content p{ margin:0 0 .95rem 0 !important; }
+.page__content p{ margin: 0 0 1rem 0 !important; }
 .page__content > *:last-child{ margin-bottom:0 !important; }
 
-/* Primary button */
+/* Primary button (CV) */
 .btn--primary{
   background:#333 !important; color:#fff !important;
-  padding:.6rem 1.4rem !important; border-radius:4px !important;
-  display:inline-block !important; text-decoration:none !important;
-  font-size:.94rem !important; font-weight:500 !important;
-  margin-top:.6rem !important;
+  padding: .62rem 1.5rem !important; border-radius:4px !important;
+  font-size:.95rem !important; font-weight:500 !important;
+  text-decoration:none !important; display:inline-block !important;
+  margin-top:.65rem !important;
 }
 .btn--primary:hover{ background:#555 !important; }
 
-/* ---------- Footer (compact, never overlaps) ---------- */
+/* ---- Footer (normal; not forced visible) ---- */
 .page__footer{
   background:#fff !important;
   border-top:1px solid #e5e5e5 !important;
-  flex:0 0 auto;
-  margin-top:1rem !important;
+  margin-top: 18px !important;
 }
 .page__footer footer{
   max-width:var(--container) !important;
   margin:0 auto !important;
-  padding:var(--footer-pad) var(--gutter) !important;
+  padding: var(--footer-pad) var(--gutter) !important;
 }
 .page__footer .sitemap,
 .page__footer-follow{ display:none !important; }
 .page__footer-copyright{
-  text-align:center !important; color:#666 !important; font-size:.85rem !important;
+  text-align:center !important; color:#666 !important; font-size:.86rem !important;
 }
 
 /* ==========================================================================
-   RESPONSIVE — image-only left, text right; bigger avatar on small screens
+   RESPONSIVE — bigger + centered photo on small screens; keep two columns
    ========================================================================== */
 
 /* Large laptops / smaller desktops */
 @media (max-width: 1200px){
-  :root{ --container:1080px; --content-max:700px; }
-  #main{ column-gap:1.8rem !important; }
+  :root{ --container: 1100px; --content-max: 720px; }
+  #main{ column-gap: 28px !important; }
 }
 
-/* Tablet landscape */
-@media (max-width: 990px){
-  :root{ --sidebar-w: 170px; --content-max: 660px; }
-  .author__avatar img{ max-width:var(--sidebar-w) !important; }
-}
-
-/* Tablet portrait & small laptops:
-   Hide meta under image; make avatar BIGGER and visually centered */
+/* Tablet / small laptops */
 @media (max-width: 900px){
-  :root{ --sidebar-w: 180px; }  /* bump size so the photo doesn’t look tiny */
-  .sidebar{ display:flex; justify-content:center; } /* horizontal centering */
-  .author__avatar{ margin-bottom:0 !important; }
-  .author__avatar img{ width:180px !important; max-width:none !important; }
-
+  /* Make the left column proportionally larger so the photo isn’t tiny */
+  :root{ --sidebar-col: clamp(190px, 34vw, 260px); --content-max: 680px; }
+  .sidebar{ justify-self: center; }               /* center the photo column */
+  /* Hide meta under the image at this size: image-only left */
   .sidebar .author__content,
   .sidebar .author__urls-wrapper{ display:none !important; }
 }
 
-/* Phones — keep two columns but shrink a bit to fit */
-@media (max-width: 640px){
-  :root{ --sidebar-w: 160px; --gutter: 1.25rem; --content-max: 560px; }
-  #main{ column-gap:1rem !important; padding:1.1rem var(--gutter) 0 var(--gutter) !important; }
-  .author__avatar img{ width:160px !important; }
-  .page__content{ font-size:.96rem !important; line-height:1.58 !important; }
+/* Narrow phones — still two columns, but tighter */
+@media (max-width: 560px){
+  :root{ --sidebar-col: clamp(180px, 42vw, 240px); --gutter: 18px; --content-max: 560px; }
+  #main{ column-gap: 16px !important; padding: 16px var(--gutter) 0 !important; }
+  .page__content{ font-size: .97rem !important; line-height: 1.58 !important; }
 }
 
 /* Very small phones */
-@media (max-width: 460px){
-  :root{ --sidebar-w: 140px; }
-  .author__avatar img{ width:140px !important; }
-  .page__content{ font-size:.95rem !important; line-height:1.55 !important; }
+@media (max-width: 420px){
+  :root{ --sidebar-col: clamp(170px, 48vw, 230px); }
+  .page__content{ font-size: .95rem !important; line-height: 1.55 !important; }
 }
