@@ -16,6 +16,25 @@
   padding: 1rem 2rem !important;
 }
 
+/* FORCE NAVIGATION TO NEVER COLLAPSE */
+.greedy-nav .visible-links {
+  display: flex !important;
+}
+
+.greedy-nav .hidden-links {
+  display: none !important;
+}
+
+.greedy-nav button,
+.greedy-nav .greedy-nav__toggle {
+  display: none !important;
+}
+
+/* Ensure nav items stay visible at all times */
+.masthead__menu-item {
+  display: inline-block !important;
+}
+
 /* ========================================================================
    FIX LAYOUT - SIDEBAR AND CONTENT PROPORTIONS
    ======================================================================== */
