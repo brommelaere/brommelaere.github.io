@@ -121,4 +121,53 @@ article.page{ max-width:var(--content-max) !important; }
 .page__footer footer{
   max-width:var(--container) !important;
   margin:0 auto !important;
-  padding:var(--footer-p
+  padding:var(--footer-pad) var(--gutter) !important;
+}
+.page__footer .sitemap,
+.page__footer-follow{ display:none !important; }
+.page__footer-copyright{
+  text-align:center !important; color:#666 !important; font-size:.85rem !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE — image-only left, text right; bigger avatar on small screens
+   ========================================================================== */
+
+/* Large laptops / smaller desktops */
+@media (max-width: 1200px){
+  :root{ --container:1080px; --content-max:700px; }
+  #main{ column-gap:1.8rem !important; }
+}
+
+/* Tablet landscape */
+@media (max-width: 990px){
+  :root{ --sidebar-w: 170px; --content-max: 660px; }
+  .author__avatar img{ max-width:var(--sidebar-w) !important; }
+}
+
+/* Tablet portrait & small laptops:
+   Hide meta under image; make avatar BIGGER and visually centered */
+@media (max-width: 900px){
+  :root{ --sidebar-w: 180px; }  /* bump size so the photo doesn’t look tiny */
+  .sidebar{ display:flex; justify-content:center; } /* horizontal centering */
+  .author__avatar{ margin-bottom:0 !important; }
+  .author__avatar img{ width:180px !important; max-width:none !important; }
+
+  .sidebar .author__content,
+  .sidebar .author__urls-wrapper{ display:none !important; }
+}
+
+/* Phones — keep two columns but shrink a bit to fit */
+@media (max-width: 640px){
+  :root{ --sidebar-w: 160px; --gutter: 1.25rem; --content-max: 560px; }
+  #main{ column-gap:1rem !important; padding:1.1rem var(--gutter) 0 var(--gutter) !important; }
+  .author__avatar img{ width:160px !important; }
+  .page__content{ font-size:.96rem !important; line-height:1.58 !important; }
+}
+
+/* Very small phones */
+@media (max-width: 460px){
+  :root{ --sidebar-w: 140px; }
+  .author__avatar img{ width:140px !important; }
+  .page__content{ font-size:.95rem !important; line-height:1.55 !important; }
+}
