@@ -1,108 +1,85 @@
 /* COMPLETE CUSTOM CSS FOR BEN ROMMELAERE'S SITE */
 
 /* ========================================================================
-   FIX HEADER - FULL WIDTH, CENTERED
+   FIX HEADER - CENTERED AND FULL WIDTH
    ======================================================================== */
 
 .masthead {
   background-color: #ffffff !important;
   border-bottom: 1px solid #e5e5e5 !important;
-  width: 100% !important;
 }
 
 .masthead__inner-wrap {
-  max-width: 1400px !important;  /* Wider max width */
-  width: 100% !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 1rem 3rem !important;  /* More padding on sides */
-  display: flex !important;
-  justify-content: center !important;
-}
-
-.masthead__menu {
-  width: 100% !important;
-}
-
-.greedy-nav {
-  width: 100% !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
+  padding: 1rem 2rem !important;
 }
 
 /* ========================================================================
-   FIX MAIN CONTENT LAYOUT - ALIGN WITH HEADER
+   FIX LAYOUT - SIDEBAR AND CONTENT PROPORTIONS
    ======================================================================== */
 
-/* Container for entire page */
+/* Make the page container centered */
 .page {
-  max-width: 1400px !important;  /* Match header width */
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 3rem !important;  /* Match header padding */
+  padding: 2rem !important;
 }
 
 #main {
-  max-width: 1400px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 !important;
-}
-
-/* Main content area - make it wider and aligned */
-.page__inner-wrap {
-  width: 100% !important;
-  max-width: 100% !important;
   display: flex !important;
   gap: 3rem !important;
 }
 
-/* The actual text content - make it stretch to align with header */
-.page__content {
-  flex: 1 !important;
-  max-width: none !important;  /* Remove max-width restriction */
-  width: 100% !important;
-  padding: 2rem 0 !important;
-  text-align: justify !important;  /* Justify text */
+/* Sidebar - make it narrower */
+.sidebar {
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  height: auto !important;
+  padding-top: 0 !important;
 }
 
-/* Paragraphs should be justified */
+/* Main content - take up remaining space */
+.page__inner-wrap {
+  flex: 1 !important;
+  max-width: 100% !important;
+}
+
+.page__content {
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: justify !important;
+}
+
 .page__content p {
   text-align: justify !important;
   margin-bottom: 1.5em !important;
   line-height: 1.8 !important;
 }
 
-/* Sidebar stays fixed width */
-.sidebar {
-  width: 300px !important;
-  min-width: 300px !important;
-  flex-shrink: 0 !important;
-}
-
 /* ========================================================================
-   FIX PROFILE IMAGE - Rectangle, larger, no circle
+   FIX PROFILE IMAGE - SMALLER, RECTANGULAR
    ======================================================================== */
 
 .author__avatar {
   display: flex !important;
   justify-content: center !important;
   width: 100% !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .author__avatar img {
-  max-width: 300px !important;
+  max-width: 200px !important;
   width: 100% !important;
   height: auto !important;
-  border-radius: 8px !important;  /* Rectangle with rounded corners */
+  border-radius: 8px !important;
   border: none !important;
-}
-
-/* Remove border on all screen sizes */
-@media screen and (min-width: 1024px) {
-  .author__avatar img {
-    border: none !important;
-    padding: 0 !important;
-  }
+  padding: 0 !important;
 }
 
 /* ========================================================================
@@ -112,30 +89,33 @@
 .author__content {
   text-align: center !important;
   width: 100% !important;
+  padding: 0 !important;
 }
 
 .author__name {
   text-align: center !important;
-  margin: 1rem 0 !important;
-  font-size: 1.5rem !important;
+  margin: 0.5rem 0 !important;
+  font-size: 1.3rem !important;
   font-weight: 600 !important;
 }
 
 .author__urls-wrapper {
   text-align: center !important;
-  margin-top: 1rem !important;
+  margin-top: 0.5rem !important;
 }
 
 .author__urls {
   text-align: center !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .author__urls li {
   display: block !important;
   text-align: center !important;
   list-style: none !important;
-  margin: 0.5rem 0 !important;
+  margin: 0.3rem 0 !important;
+  font-size: 0.9rem !important;
 }
 
 /* Hide the "Follow" button */
@@ -144,21 +124,20 @@
 }
 
 /* ========================================================================
-   FIX FOOTER - WHITE, CENTERED, NO SITEMAP
+   FIX FOOTER - WHITE, CENTERED
    ======================================================================== */
 
 .page__footer {
   background-color: #ffffff !important;
   border-top: 1px solid #e5e5e5 !important;
-  width: 100% !important;
   margin-top: 3rem !important;
 }
 
 .page__footer footer {
   background-color: #ffffff !important;
-  max-width: 1400px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 2rem 3rem !important;
+  padding: 2rem !important;
 }
 
 /* Hide sitemap */
@@ -202,52 +181,35 @@
    RESPONSIVE DESIGN
    ======================================================================== */
 
-@media (max-width: 1280px) {
-  .page,
-  #main,
-  .masthead__inner-wrap,
-  .page__footer footer {
-    max-width: 1200px !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-  }
-}
-
 @media (max-width: 1024px) {
-  .page__inner-wrap {
+  #main {
     flex-direction: column !important;
   }
   
   .sidebar {
     width: 100% !important;
+    max-width: 100% !important;
     position: relative !important;
-    height: auto !important;
   }
   
   .author__avatar img {
-    max-width: 250px !important;
-  }
-  
-  .page__content {
-    width: 100% !important;
+    max-width: 180px !important;
   }
 }
 
 @media (max-width: 768px) {
   .page,
-  #main,
   .masthead__inner-wrap,
   .page__footer footer {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding: 1rem !important;
   }
   
   .author__avatar img {
-    max-width: 200px !important;
+    max-width: 150px !important;
   }
   
   .page__content {
-    text-align: left !important;  /* Don't justify on mobile */
+    text-align: left !important;
   }
   
   .page__content p {
