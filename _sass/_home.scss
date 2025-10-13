@@ -1,0 +1,67 @@
+/* ===== Safe, narrow overrides for the home (single layout) ===== */
+
+/* Stop the sticky sidebar so nothing gets clipped on laptops */
+.layout--single .sidebar,
+.layout--single .sidebar.sticky {
+  position: static !important;
+}
+
+/* Desktop: compact meta under the photo so it fits comfortably */
+.layout--single .author__avatar { margin: 0 auto 10px auto !important; }
+.layout--single .author__avatar img {
+  width: clamp(160px, 18vw, 200px) !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  border: 0 !important;
+  display: block;
+}
+
+.layout--single .author__content { text-align: center !important; }
+.layout--single .author__name {
+  font-size: 1.02rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 6px 0 !important;
+}
+.layout--single .author__urls { margin: 0 !important; padding: 0 !important; }
+.layout--single .author__urls li {
+  list-style: none !important;
+  margin: 4px 0 !important;
+  line-height: 1.2 !important;
+  font-size: .92rem !important;
+  text-align: center !important;
+}
+.layout--single .author__urls-wrapper .btn,
+.layout--single .author__urls-wrapper .btn--inverse { display: none !important; }
+
+/* Right column readability */
+.layout--single article.page { max-width: 740px !important; }
+.layout--single .page__content { font-size: 1rem !important; line-height: 1.6 !important; }
+.layout--single .page__content p { margin: 0 0 1rem 0 !important; }
+.layout--single .page__content > *:last-child { margin-bottom: 0 !important; }
+
+/* -------- Small screens: keep two columns, big centered photo; hide meta -------- */
+@media (max-width: 900px) {
+  /* Two columns using grid, larger photo */
+  .layout--single #main {
+    display: grid !important;
+    grid-template-columns: clamp(200px, 40vw, 280px) minmax(0, 1fr) !important;
+    column-gap: 18px !important;
+    align-items: start !important;
+    padding-top: 16px !important;
+  }
+
+  .layout--single .sidebar,
+  .layout--single .sidebar.sticky {
+    width: clamp(200px, 40vw, 280px) !important;
+    display: flex !important;
+    justify-content: center !important; /* centers the photo */
+  }
+
+  .layout--single .author__avatar { margin: 0 !important; }
+  .layout--single .author__avatar img { width: clamp(200px, 40vw, 280px) !important; }
+
+  /* Hide text under the photo on small screens (image-only left) */
+  .layout--single .sidebar .author__content,
+  .layout--single .sidebar .author__urls-wrapper { display: none !important; }
+}
