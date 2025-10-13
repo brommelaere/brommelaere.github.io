@@ -1,23 +1,38 @@
-/* CUSTOM CSS FOR BEN ROMMELAERE'S SITE */
+/* COMPLETE CUSTOM CSS FOR BEN ROMMELAERE'S SITE */
 
-/* FIX PROFILE IMAGE - Make it rectangular, larger, no circle border */
+/* ========================================================================
+   FIX PROFILE IMAGE - Make it rectangular, larger, remove circle
+   ======================================================================== */
+
 .author__avatar {
-  display: table-cell;
-  vertical-align: top;
+  display: table-cell !important;
+  vertical-align: top !important;
   width: 300px !important;
   height: auto !important;
-  
-  img {
-    max-width: 300px !important;
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 8px !important;  /* Slight rounded corners, not circle */
+}
+
+.author__avatar img {
+  max-width: 300px !important;
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 8px !important;  /* Rectangle with slight rounded corners, NOT circle */
+  border: none !important;
+}
+
+/* Remove border on large screens too */
+@media screen and (min-width: 1024px) {
+  .author__avatar img {
     border: none !important;
   }
 }
 
-/* CENTER EVERYTHING UNDER THE NAME */
+/* ========================================================================
+   CENTER TEXT UNDER PHOTO
+   ======================================================================== */
+
 .author__content {
+  display: table-cell !important;
+  vertical-align: top !important;
   text-align: center !important;
   width: 100% !important;
 }
@@ -32,42 +47,58 @@
 }
 
 .author__urls {
-  li {
-    display: block !important;
-    text-align: center !important;
-  }
+  text-align: center !important;
 }
 
-/* HIDE THE FOLLOW BUTTON */
-.author__urls-wrapper .btn {
+.author__urls li {
+  display: block !important;
+  text-align: center !important;
+  list-style: none !important;
+}
+
+/* Hide the "Follow" button */
+.author__urls-wrapper .btn--inverse {
   display: none !important;
 }
 
-/* FIX FOOTER - WHITE BACKGROUND, REMOVE SITEMAP */
+/* ========================================================================
+   FIX FOOTER - WHITE BACKGROUND, NO GREY, REMOVE SITEMAP
+   ======================================================================== */
+
 .page__footer {
   background-color: #ffffff !important;
   border-top: 1px solid #e5e5e5 !important;
-  
-  footer {
-    background-color: #ffffff !important;
-  }
+  padding: 0 !important;
 }
 
-/* Hide sitemap text completely */
-.page__footer .sitemap,
+.page__footer footer {
+  background-color: #ffffff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Hide sitemap completely */
+.page__footer .sitemap {
+  display: none !important;
+}
+
 .page__footer-follow {
   display: none !important;
 }
 
-/* Style footer copyright */
+/* Style the copyright text */
 .page__footer-copyright {
   text-align: center !important;
   padding: 2rem 0 !important;
+  margin: 0 !important;
   color: #666 !important;
   background-color: #ffffff !important;
 }
 
-/* CENTER HEADER AND CONSTRAIN WIDTH */
+/* ========================================================================
+   CENTER HEADER AND ALIGN CONTENT
+   ======================================================================== */
+
 .masthead {
   background-color: #ffffff !important;
   border-bottom: 1px solid #e5e5e5 !important;
@@ -79,35 +110,56 @@
   padding: 0 2rem !important;
 }
 
-/* CENTER MAIN CONTENT AND ALIGN WITH HEADER */
-.page__inner-wrap {
+/* Constrain main content width and align with header */
+.page {
   max-width: 1200px !important;
   margin: 0 auto !important;
 }
 
-.page__content {
-  max-width: 800px !important;
-  margin-left: 340px !important; /* Account for sidebar width */
+.page__inner-wrap {
+  max-width: 100% !important;
 }
 
-/* Make layout responsive */
+/* Align main content text with header, accounting for sidebar */
+.page__content {
+  max-width: 800px !important;
+}
+
+/* Make the overall layout centered */
+#main {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* ========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================================================== */
+
 @media (max-width: 1024px) {
-  .page__content {
-    margin-left: 300px !important;
+  .author__avatar {
+    width: 250px !important;
+  }
+  
+  .author__avatar img {
+    max-width: 250px !important;
   }
 }
 
 @media (max-width: 768px) {
-  .page__content {
-    margin-left: 0 !important;
-    max-width: 100% !important;
-  }
-  
   .author__avatar {
     width: 200px !important;
-    
-    img {
-      max-width: 200px !important;
-    }
+  }
+  
+  .author__avatar img {
+    max-width: 200px !important;
+  }
+  
+  .page__content {
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+  }
+  
+  .masthead__inner-wrap {
+    padding: 0 1rem !important;
   }
 }
