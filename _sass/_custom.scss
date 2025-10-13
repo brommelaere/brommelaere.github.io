@@ -16,30 +16,6 @@
   padding: 1rem 2rem !important;
 }
 
-.masthead__menu {
-  width: 100% !important;
-}
-
-.greedy-nav {
-  width: 100% !important;
-}
-
-/* Keep navigation visible on desktop */
-@media screen and (min-width: 769px) {
-  .greedy-nav button {
-    display: none !important;
-  }
-  
-  .greedy-nav .visible-links {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-  }
-  
-  .greedy-nav .hidden-links {
-    display: none !important;
-  }
-}
-
 /* ========================================================================
    FIX LAYOUT - SIDEBAR AND CONTENT PROPORTIONS
    ======================================================================== */
@@ -55,7 +31,7 @@
   max-width: 1200px !important;
   margin: 0 auto !important;
   display: flex !important;
-  gap: 1.5rem !important;
+  gap: 0.5rem !important;
 }
 
 /* Sidebar - make it narrower */
