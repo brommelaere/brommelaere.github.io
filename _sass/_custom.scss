@@ -72,4 +72,176 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
     padding-top: 0 !important;
     margin-top: 0 !important;
     padding-left: 0 !important;
-    margin-right: 0
+    margin-right: 0 !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+    float: none !important;
+  }
+}
+
+/* ============================================================
+   AVATAR/IMAGE
+   ============================================================ */
+
+.author__avatar {
+  margin-top: 0 !important;
+  margin-bottom: 0.25rem !important;
+  padding-top: 0 !important;
+
+  img {
+    max-width: 350px !important;
+    width: 100% !important;
+    border-radius: 6px !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important; /* removes baseline gap */
+  }
+}
+
+/* ============================================================
+   AUTHOR INFO
+   ============================================================ */
+
+.author__content {
+  text-align: center !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.author__name {
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  margin: 0 0 0.2rem 0 !important;
+  line-height: 1.2 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+}
+
+.sidebar p,
+.sidebar li {
+  margin-top: 0.1rem !important;
+  margin-bottom: 0.1rem !important;
+  white-space: nowrap !important;
+}
+
+.author__urls-wrapper {
+  margin-top: 0.2rem !important;
+
+  @media screen and (min-width: 64em) {
+    display: block !important;
+  }
+
+  button {
+    display: none !important;
+  }
+}
+
+.author__urls {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+
+  li {
+    text-align: center !important;
+    margin: 0.1rem 0 !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap !important;
+  }
+
+  a {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* ============================================================
+   PAGE CONTENT (right column)
+   ============================================================ */
+
+.page {
+  margin-top: 0 !important;   /* base (mobile) */
+  padding-top: 0 !important;
+  margin-left: 0 !important;
+  float: none !important;
+
+  @media screen and (min-width: 64em) {
+    /* Desktop alignment: nudge the right column down by the SAME offset as the photo */
+    margin-top: $align-offset !important;
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+    flex-grow: 1 !important;
+    width: auto !important;
+  }
+}
+
+/* Some page types use different wrappers; align them too */
+@media screen and (min-width: 64em) {
+  .archive,
+  .initial-content,
+  .home .page {
+    margin-top: $align-offset !important;
+  }
+}
+
+.page__inner-wrap {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page__title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page__content {
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  max-width: 700px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+
+  p {
+    margin-bottom: 1.2rem !important;
+    text-align: justify !important;
+    text-align-last: left !important;
+    word-spacing: -0.05em !important;
+    hyphens: none !important;
+  }
+
+  p:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media screen and (max-width: 63.9375em) {
+  .author__avatar img {
+    max-width: 350px !important;
+  }
+
+  .author__content,
+  .author__urls-wrapper {
+    display: none !important;
+  }
+
+  .page__content p {
+    text-align: left !important;
+  }
+}
+
+@media screen and (max-width: 43.75em) {
+  .author__avatar img {
+    max-width: 280px !important;
+  }
+}
+
+@media screen and (max-width: 34.375em) {
+  .author__avatar img {
+    max-width: 220px !important;
+  }
+}
