@@ -2,7 +2,23 @@
    CUSTOM OVERRIDES FOR ACADEMICPAGES - CLEAN ALIGNED LAYOUT
    ========================================================================== */
 
-/* Align tops of sidebar and content */
+/* Navigation - spread out to match content width */
+.greedy-nav {
+  @media screen and (min-width: 64em) {
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+.greedy-nav__toggle {
+  @media screen and (min-width: 64em) {
+    display: none !important;
+  }
+}
+
+/* Align tops of sidebar and content - REMOVE ALL TOP SPACING */
 #main {
   margin-top: 0 !important;
   padding-top: 0 !important;
@@ -11,16 +27,18 @@
 .sidebar {
   margin-top: 0 !important;
   margin-bottom: 1em !important;
+  padding-top: 0 !important;
   
   @media screen and (min-width: 64em) {
     padding-top: 0 !important;
   }
 }
 
-/* Avatar/Image styling */
+/* Avatar/Image - NO top margin */
 .author__avatar {
   margin-top: 0 !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.5rem !important; /* Tighter spacing below image */
+  padding-top: 0 !important;
   
   img {
     max-width: 200px !important;
@@ -35,9 +53,11 @@
   }
 }
 
-/* Author content */
+/* Author content - TIGHTER SPACING */
 .author__content {
   text-align: center !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
   
   @media screen and (min-width: 64em) {
     text-align: center !important;
@@ -47,12 +67,21 @@
 .author__name {
   font-size: 1.15rem !important;
   font-weight: 600 !important;
-  margin: 0 0 0.8rem 0 !important;
-  line-height: 1.3 !important;
+  margin: 0 0 0.4rem 0 !important; /* Tighter */
+  line-height: 1.2 !important;
 }
 
-/* Author links */
+/* Tighter spacing for location/university */
+.sidebar p,
+.sidebar li {
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.2rem !important;
+}
+
+/* Author links - MUCH TIGHTER */
 .author__urls-wrapper {
+  margin-top: 0.4rem !important;
+  
   @media screen and (min-width: 64em) {
     display: block !important;
   }
@@ -63,14 +92,23 @@
 }
 
 .author__urls {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  
   li {
     text-align: center !important;
-    margin: 0.35rem 0 !important;
+    margin: 0.2rem 0 !important; /* Much tighter */
     font-size: 0.9rem !important;
+  }
+  
+  a {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
 
-/* Page content - LIMIT TEXT WIDTH HERE, NOT ON .page */
+/* Page content - NO TOP MARGIN, limited width */
 .page {
   margin-top: 0 !important;
   padding-top: 0 !important;
@@ -83,12 +121,15 @@
 
 .page__title {
   margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .page__content {
   font-size: 1.05rem !important;
   line-height: 1.7 !important;
-  max-width: 700px !important; /* Limit text width HERE */
+  max-width: 700px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
   
   p {
     margin-bottom: 1.2rem !important;
