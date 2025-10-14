@@ -68,7 +68,7 @@
 }
 
 /* ============================================================
-   AVATAR/IMAGE - 30% BIGGER (260px)
+   AVATAR/IMAGE - BIGGER (300px)
    ============================================================ */
 
 .author__avatar {
@@ -77,7 +77,7 @@
   padding-top: 0 !important;
   
   img {
-    max-width: 260px !important; /* 30% bigger than 200px */
+    max-width: 300px !important;
     width: 100% !important;
     border-radius: 6px !important;
     border: none !important;
@@ -86,13 +86,13 @@
     display: block !important;
     
     @media screen and (min-width: 64em) {
-      max-width: 260px !important;
+      max-width: 300px !important;
     }
   }
 }
 
 /* ============================================================
-   AUTHOR INFO - Tight spacing
+   AUTHOR INFO - NO WRAPPING
    ============================================================ */
 
 .author__content {
@@ -112,12 +112,14 @@
   margin: 0 0 0.2rem 0 !important;
   line-height: 1.2 !important;
   padding: 0 !important;
+  white-space: nowrap !important; /* NEVER WRAP */
 }
 
 .sidebar p,
 .sidebar li {
   margin-top: 0.1rem !important;
   margin-bottom: 0.1rem !important;
+  white-space: nowrap !important; /* NEVER WRAP */
 }
 
 .author__urls-wrapper {
@@ -140,6 +142,7 @@
     text-align: center !important;
     margin: 0.1rem 0 !important;
     font-size: 0.9rem !important;
+    white-space: nowrap !important; /* NEVER WRAP */
   }
   
   a {
@@ -150,7 +153,7 @@
 }
 
 /* ============================================================
-   PAGE CONTENT - FULL JUSTIFICATION FOR CLEAN LOOK
+   PAGE CONTENT - LEFT ALIGNED, NO WEIRD WORD BREAKS
    ============================================================ */
 
 .page {
@@ -182,8 +185,7 @@
   
   p {
     margin-bottom: 1.2rem !important;
-    text-align: justify !important; /* FULL JUSTIFICATION for clean look */
-    hyphens: auto !important; /* Better word breaking */
+    text-align: left !important; /* Simple left align - cleaner */
   }
   
   p:first-child {
@@ -198,7 +200,7 @@
 
 @media screen and (max-width: 63.9375em) {
   .author__avatar img {
-    max-width: 280px !important; /* Bigger on tablet too */
+    max-width: 320px !important;
   }
   
   .author__content,
@@ -209,16 +211,12 @@
 
 @media screen and (max-width: 43.75em) {
   .author__avatar img {
-    max-width: 240px !important;
-  }
-  
-  .page__content p {
-    text-align: left !important; /* Left align on mobile */
+    max-width: 260px !important;
   }
 }
 
 @media screen and (max-width: 34.375em) {
   .author__avatar img {
-    max-width: 180px !important;
+    max-width: 200px !important;
   }
 }
