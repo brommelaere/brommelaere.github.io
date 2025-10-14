@@ -2,8 +2,8 @@
    CUSTOM OVERRIDES FOR ACADEMICPAGES - PROPERLY ALIGNED LAYOUT
    ========================================================================== */
 
-/* ---------- Single knob to control vertical separation from navbar ---------- */
-$align-offset: 28px !default;       /* Tweak 20–36px until the photo starts where you want */
+/* ---- One knob: how far below the navbar the photo + text should start ---- */
+$align-offset: 28px !default;   /* try 20–36px to taste */
 
 /* ============================================================
    NAVIGATION BAR
@@ -38,8 +38,8 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
 }
 
 /* ============================================================
-   MAIN CONTAINER
-   (Keep theme’s layout; no flex here so sticky works perfectly.)
+   MAIN WRAPPER
+   - Desktop uses flex so the sidebar and content sit side-by-side
    ============================================================ */
 
 #main {
@@ -47,6 +47,10 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
   padding-top: 0 !important;
 
   @media screen and (min-width: 64em) {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+
     max-width: 1100px !important;
     margin: 0 auto !important;
     padding-left: 2rem !important;
@@ -55,7 +59,8 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
 }
 
 /* ============================================================
-   SIDEBAR
+   SIDEBAR (left column)
+   - Sticky and starts below the fixed masthead by align-offset
    ============================================================ */
 
 .sidebar {
@@ -65,15 +70,15 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
   margin-right: 0 !important;
 
   @media screen and (min-width: 64em) {
-    /* The key: keep the sidebar sticky and start it BELOW the masthead */
     position: sticky !important;
     top: calc(#{$masthead-height} + #{$align-offset}) !important;
 
+    flex: 0 0 auto !important;     /* don’t stretch */
+    align-self: flex-start !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
     padding-left: 0 !important;
     margin-right: 0 !important;
-    flex-shrink: 0 !important;
     width: auto !important;
     float: none !important;
   }
@@ -95,7 +100,7 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    display: block !important; /* removes baseline gap */
+    display: block !important;  /* removes baseline gap */
   }
 }
 
@@ -156,7 +161,9 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
 }
 
 /* ============================================================
-   PAGE CONTENT (right column)
+   RIGHT COLUMN (page content)
+   - Give the same vertical offset as the photo so tops align
+   - Flex grows to fill remaining width
    ============================================================ */
 
 .page {
@@ -166,21 +173,23 @@ $align-offset: 28px !default;       /* Tweak 20–36px until the photo starts wh
   float: none !important;
 
   @media screen and (min-width: 64em) {
-    /* Desktop alignment: nudge the right column down by the SAME offset as the photo */
-    margin-top: $align-offset !important;
+    margin-top: $align-offset !important;  /* align with photo top */
     margin-left: 0 !important;
     padding-top: 0 !important;
-    flex-grow: 1 !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;               /* prevent overflow clipping */
     width: auto !important;
   }
 }
 
-/* Some page types use different wrappers; align them too */
+/* Some layouts wrap content differently; align them too */
 @media screen and (min-width: 64em) {
   .archive,
   .initial-content,
   .home .page {
     margin-top: $align-offset !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
   }
 }
 
