@@ -18,11 +18,13 @@
   }
 
   // CHANGED: Removed position: fixed and height: 100vh - now sidebar flows normally
-  @media screen and (min-width: $sidebar-screen-min-width) {
-    overflow-y: visible; // Changed from auto
-    position: relative; // Changed from fixed
-    padding-top: 0; // Changed from $masthead-height
-  }
+   @media screen and (min-width: $sidebar-screen-min-width) {
+     position: sticky;          // keep the sidebar in view as you scroll
+     top: $masthead-height;     // start exactly under the fixed masthead (70px)
+     overflow-y: visible;
+     padding-top: 0;
+     margin-top: 0;
+   }
 
   @include breakpoint($large) {
     @include span(2.5 of 12);
