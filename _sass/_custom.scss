@@ -2,8 +2,6 @@
    CUSTOM OVERRIDES FOR ACADEMICPAGES - PROPERLY ALIGNED LAYOUT
    ========================================================================== */
 
-$align-offset: 0px !default;
-
 /* ============================================================
    NAVIGATION BAR
    ============================================================ */
@@ -12,7 +10,7 @@ $align-offset: 0px !default;
   @media screen and (min-width: 64em) {
     padding-left: 0 !important;
     padding-right: 0 !important;
-    border-bottom: 1px solid #e5e5e5 !important; /* LINE UNDER NAV */
+    border-bottom: 1px solid #e5e5e5 !important;
   }
 }
 
@@ -38,11 +36,11 @@ $align-offset: 0px !default;
 }
 
 /* ============================================================
-   MAIN WRAPPER
+   MAIN WRAPPER - ADD SPACE BELOW NAV
    ============================================================ */
 
 #main {
-  margin-top: 0 !important;
+  margin-top: 2rem !important; /* SPACE BELOW NAV */
   padding-top: 0 !important;
 
   @media screen and (min-width: 64em) {
@@ -50,14 +48,14 @@ $align-offset: 0px !default;
     align-items: flex-start !important;
     gap: 2rem !important;
     max-width: 1100px !important;
-    margin: 0 auto !important;
+    margin: 2rem auto 0 !important; /* KEEP SPACE ON DESKTOP */
     padding-left: 2rem !important;
     padding-right: 2rem !important;
   }
 }
 
 /* ============================================================
-   SIDEBAR - STAYS LEFT ON MOBILE
+   SIDEBAR - IMAGE LEFT OF TEXT ON MOBILE
    ============================================================ */
 
 .sidebar {
@@ -77,11 +75,12 @@ $align-offset: 0px !default;
     float: none !important;
   }
   
-  /* MOBILE: Keep sidebar on left with flex */
+  /* MOBILE: horizontal layout, image left of text */
   @media screen and (max-width: 63.9375em) {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: flex-start !important;
+    gap: 1rem !important;
   }
 }
 
@@ -103,15 +102,15 @@ $align-offset: 0px !default;
     margin: 0 !important;
     display: block !important;
     
-    /* MOBILE: smaller but stays left */
     @media screen and (max-width: 63.9375em) {
-      max-width: 200px !important;
+      max-width: 120px !important; /* Smaller on mobile */
+      flex-shrink: 0 !important;
     }
   }
 }
 
 /* ============================================================
-   AUTHOR INFO
+   AUTHOR INFO - SHOW ON MOBILE, RIGHT OF IMAGE
    ============================================================ */
 
 .author__content {
@@ -119,8 +118,13 @@ $align-offset: 0px !default;
   margin-top: 0 !important;
   padding-top: 0 !important;
   
+  @media screen and (min-width: 64em) {
+    text-align: center !important;
+  }
+  
   @media screen and (max-width: 63.9375em) {
-    display: none !important;
+    text-align: left !important; /* Left align on mobile */
+    flex: 1 !important;
   }
 }
 
@@ -131,6 +135,10 @@ $align-offset: 0px !default;
   line-height: 1.2 !important;
   padding: 0 !important;
   white-space: nowrap !important;
+  
+  @media screen and (max-width: 63.9375em) {
+    font-size: 1rem !important;
+  }
 }
 
 .sidebar p,
@@ -152,7 +160,7 @@ $align-offset: 0px !default;
   }
   
   @media screen and (max-width: 63.9375em) {
-    display: none !important;
+    display: block !important; /* SHOW ON MOBILE */
   }
 }
 
@@ -171,6 +179,13 @@ $align-offset: 0px !default;
     margin-bottom: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+  }
+  
+  @media screen and (max-width: 63.9375em) {
+    li {
+      text-align: left !important;
+      font-size: 0.8rem !important;
+    }
   }
 }
 
@@ -232,7 +247,7 @@ $align-offset: 0px !default;
 }
 
 /* ============================================================
-   FOOTER - FIX WHITE BACKGROUND
+   FOOTER
    ============================================================ */
 
 .page__footer {
@@ -249,12 +264,12 @@ $align-offset: 0px !default;
 
 @media screen and (max-width: 43.75em) {
   .author__avatar img {
-    max-width: 160px !important;
+    max-width: 100px !important;
   }
 }
 
 @media screen and (max-width: 34.375em) {
   .author__avatar img {
-    max-width: 140px !important;
+    max-width: 80px !important;
   }
 }
