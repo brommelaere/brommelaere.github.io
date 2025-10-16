@@ -2,76 +2,86 @@
    CUSTOM OVERRIDES FOR ACADEMICPAGES - PROPERLY ALIGNED LAYOUT
    ========================================================================== */
 
+$align-offset: 0px !default;
+
 /* ============================================================
-   NAVIGATION BAR - ADD SPACE BELOW IT
+   NAVIGATION BAR
    ============================================================ */
 
 .masthead {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  border-bottom: 1px solid #e5e5e5 !important;
-  padding-bottom: 1rem !important;
-  margin-bottom: 2rem !important; /* SPACE BETWEEN NAV AND CONTENT */
+  @media screen and (min-width: 64em) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-bottom: 1px solid #e5e5e5 !important; /* LINE UNDER NAV */
+  }
 }
 
 .masthead__inner-wrap {
-  max-width: 1100px !important;
-  margin: 0 auto !important;
-  padding: 0 2rem !important;
+  @media screen and (min-width: 64em) {
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
 }
 
 .masthead__menu-item {
-  padding-right: 3em !important;
+  @media screen and (min-width: 64em) {
+    padding-right: 3em !important;
+  }
 }
 
 .greedy-nav {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* ============================================================
-   MAIN WRAPPER - FLEXBOX LAYOUT ON ALL PAGES
-   ============================================================ */
-
-#main {
-  max-width: 1100px !important;
-  margin: 0 auto !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-  padding-bottom: 2rem !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  gap: 2rem !important;
-  
-  /* MOBILE: Stack vertically on small screens */
-  @media screen and (max-width: 48em) {
-    flex-direction: column !important;
-    gap: 1rem !important;
+  @media screen and (min-width: 64em) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
 /* ============================================================
-   SIDEBAR - SHOW ON ALL PAGES
+   MAIN WRAPPER
+   ============================================================ */
+
+#main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+
+  @media screen and (min-width: 64em) {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+/* ============================================================
+   SIDEBAR - STAYS LEFT ON MOBILE
    ============================================================ */
 
 .sidebar {
-  flex: 0 0 auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: auto !important;
-  max-width: 350px !important;
-  float: none !important;
-  position: static !important;
+  margin-top: 0 !important;
+  margin-bottom: 1em !important;
+  padding-top: 0 !important;
+  margin-right: 0 !important;
+
+  @media screen and (min-width: 64em) {
+    flex: 0 0 auto !important;
+    align-self: flex-start !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    width: auto !important;
+    float: none !important;
+  }
   
-  /* MOBILE: Image left of text (horizontal layout) */
-  @media screen and (max-width: 48em) {
+  /* MOBILE: Keep sidebar on left with flex */
+  @media screen and (max-width: 63.9375em) {
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 1rem !important;
-    width: 100% !important;
-    max-width: 100% !important;
   }
 }
 
@@ -80,8 +90,9 @@
    ============================================================ */
 
 .author__avatar {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.25rem !important;
+  padding-top: 0 !important;
 
   img {
     max-width: 350px !important;
@@ -91,39 +102,25 @@
     padding: 0 !important;
     margin: 0 !important;
     display: block !important;
-  }
-  
-  /* MOBILE: Smaller image, doesn't shrink */
-  @media screen and (max-width: 48em) {
-    flex-shrink: 0 !important;
     
-    img {
-      max-width: 120px !important;
-      width: 120px !important;
-    }
-  }
-  
-  @media screen and (max-width: 36em) {
-    img {
-      max-width: 100px !important;
-      width: 100px !important;
+    /* MOBILE: smaller but stays left */
+    @media screen and (max-width: 63.9375em) {
+      max-width: 200px !important;
     }
   }
 }
 
 /* ============================================================
-   AUTHOR INFO - SHOW ON ALL SCREEN SIZES
+   AUTHOR INFO
    ============================================================ */
 
 .author__content {
   text-align: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
   
-  /* MOBILE: Left-aligned, takes remaining space */
-  @media screen and (max-width: 48em) {
-    flex: 1 !important;
-    text-align: left !important;
+  @media screen and (max-width: 63.9375em) {
+    display: none !important;
   }
 }
 
@@ -134,10 +131,6 @@
   line-height: 1.2 !important;
   padding: 0 !important;
   white-space: nowrap !important;
-  
-  @media screen and (max-width: 48em) {
-    font-size: 1rem !important;
-  }
 }
 
 .sidebar p,
@@ -149,16 +142,23 @@
 
 .author__urls-wrapper {
   margin-top: 0.2rem !important;
-  display: block !important;
+
+  @media screen and (min-width: 64em) {
+    display: block !important;
+  }
 
   button {
+    display: none !important;
+  }
+  
+  @media screen and (max-width: 63.9375em) {
     display: none !important;
   }
 }
 
 .author__urls {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 
   li {
     text-align: center !important;
@@ -168,15 +168,9 @@
   }
 
   a {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  @media screen and (max-width: 48em) {
-    li {
-      text-align: left !important;
-      font-size: 0.85rem !important;
-    }
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
 
@@ -185,30 +179,37 @@
    ============================================================ */
 
 .page {
-  flex: 1 1 auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  min-width: 0 !important;
-  width: auto !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  margin-left: 0 !important;
   float: none !important;
+
+  @media screen and (min-width: 64em) {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    width: auto !important;
+  }
 }
 
 .page__inner-wrap {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .page__title {
-  margin: 0 0 1rem 0 !important;
-  padding: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .page__content {
   font-size: 1.05rem !important;
   line-height: 1.7 !important;
   max-width: 700px !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 
   p {
     margin-bottom: 1.2rem !important;
@@ -223,7 +224,7 @@
     padding-top: 0 !important;
   }
   
-  @media screen and (max-width: 48em) {
+  @media screen and (max-width: 63.9375em) {
     p {
       text-align: left !important;
     }
@@ -231,30 +232,29 @@
 }
 
 /* ============================================================
-   ARCHIVE LAYOUT (Research, Teaching, etc pages)
-   ============================================================ */
-
-.archive {
-  flex: 1 1 auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: auto !important;
-  float: none !important;
-}
-
-.archive__item {
-  margin-bottom: 1.5rem !important;
-}
-
-/* ============================================================
-   FOOTER
+   FOOTER - FIX WHITE BACKGROUND
    ============================================================ */
 
 .page__footer {
   background: transparent !important;
-  margin-top: 3rem !important;
 }
 
 .page__footer footer {
   background: transparent !important;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media screen and (max-width: 43.75em) {
+  .author__avatar img {
+    max-width: 160px !important;
+  }
+}
+
+@media screen and (max-width: 34.375em) {
+  .author__avatar img {
+    max-width: 140px !important;
+  }
 }
