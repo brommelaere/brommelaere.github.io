@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: archive
 title: "Research"
 permalink: /research/
 author_profile: true
@@ -45,6 +45,7 @@ The Brazilian soy industry is a leading cause of deforestation in several major 
 
 ## Publication
 
-### [Making Transit Reliability Benefits Accessible to Engineers](https://ascelibrary.org/doi/10.1061/9780784479926.051)  
+### Making Transit Reliability Benefits Accessible to Engineers  
+<span style="font-weight:normal;">· [<a href="https://ascelibrary.org/doi/10.1061/9780784479926.051" target="_blank">published version</a>]</span>  
 *International Conference on Transportation and Development, 2016*  
 *with John Parker*
