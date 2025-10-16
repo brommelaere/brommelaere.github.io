@@ -2,8 +2,7 @@
    CUSTOM OVERRIDES FOR ACADEMICPAGES - PROPERLY ALIGNED LAYOUT
    ========================================================================== */
 
-/* ---- One knob: how far below the navbar the photo + text should start ---- */
-$align-offset: 28px !default;   /* try 20–36px to taste */
+$align-offset: 0px !default;
 
 /* ============================================================
    NAVIGATION BAR
@@ -13,6 +12,7 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
   @media screen and (min-width: 64em) {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    border-bottom: 1px solid #e5e5e5 !important; /* LINE UNDER NAV */
   }
 }
 
@@ -39,7 +39,6 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
 
 /* ============================================================
    MAIN WRAPPER
-   - Desktop uses flex so the sidebar and content sit side-by-side
    ============================================================ */
 
 #main {
@@ -50,7 +49,6 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
     display: flex !important;
     align-items: flex-start !important;
     gap: 2rem !important;
-
     max-width: 1100px !important;
     margin: 0 auto !important;
     padding-left: 2rem !important;
@@ -59,8 +57,7 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
 }
 
 /* ============================================================
-   SIDEBAR (left column)
-   - Sticky and starts below the fixed masthead by align-offset
+   SIDEBAR - STAYS LEFT ON MOBILE
    ============================================================ */
 
 .sidebar {
@@ -70,10 +67,7 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
   margin-right: 0 !important;
 
   @media screen and (min-width: 64em) {
-    position: sticky !important;
-    top: calc(#{$masthead-height} + #{$align-offset}) !important;
-
-    flex: 0 0 auto !important;     /* don’t stretch */
+    flex: 0 0 auto !important;
     align-self: flex-start !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
@@ -81,6 +75,13 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
     margin-right: 0 !important;
     width: auto !important;
     float: none !important;
+  }
+  
+  /* MOBILE: Keep sidebar on left with flex */
+  @media screen and (max-width: 63.9375em) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
 }
 
@@ -100,7 +101,12 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    display: block !important;  /* removes baseline gap */
+    display: block !important;
+    
+    /* MOBILE: smaller but stays left */
+    @media screen and (max-width: 63.9375em) {
+      max-width: 200px !important;
+    }
   }
 }
 
@@ -112,6 +118,10 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
   text-align: center !important;
   margin-top: 0 !important;
   padding-top: 0 !important;
+  
+  @media screen and (max-width: 63.9375em) {
+    display: none !important;
+  }
 }
 
 .author__name {
@@ -140,6 +150,10 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
   button {
     display: none !important;
   }
+  
+  @media screen and (max-width: 63.9375em) {
+    display: none !important;
+  }
 }
 
 .author__urls {
@@ -161,35 +175,22 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
 }
 
 /* ============================================================
-   RIGHT COLUMN (page content)
-   - Give the same vertical offset as the photo so tops align
-   - Flex grows to fill remaining width
+   PAGE CONTENT
    ============================================================ */
 
 .page {
-  margin-top: 0 !important;   /* base (mobile) */
+  margin-top: 0 !important;
   padding-top: 0 !important;
   margin-left: 0 !important;
   float: none !important;
 
   @media screen and (min-width: 64em) {
-    margin-top: $align-offset !important;  /* align with photo top */
+    margin-top: 0 !important;
     margin-left: 0 !important;
     padding-top: 0 !important;
     flex: 1 1 auto !important;
-    min-width: 0 !important;               /* prevent overflow clipping */
-    width: auto !important;
-  }
-}
-
-/* Some layouts wrap content differently; align them too */
-@media screen and (min-width: 64em) {
-  .archive,
-  .initial-content,
-  .home .page {
-    margin-top: $align-offset !important;
-    flex: 1 1 auto !important;
     min-width: 0 !important;
+    width: auto !important;
   }
 }
 
@@ -222,35 +223,38 @@ $align-offset: 28px !default;   /* try 20–36px to taste */
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
+  
+  @media screen and (max-width: 63.9375em) {
+    p {
+      text-align: left !important;
+    }
+  }
+}
+
+/* ============================================================
+   FOOTER - FIX WHITE BACKGROUND
+   ============================================================ */
+
+.page__footer {
+  background: transparent !important;
+}
+
+.page__footer footer {
+  background: transparent !important;
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 
-@media screen and (max-width: 63.9375em) {
-  .author__avatar img {
-    max-width: 350px !important;
-  }
-
-  .author__content,
-  .author__urls-wrapper {
-    display: none !important;
-  }
-
-  .page__content p {
-    text-align: left !important;
-  }
-}
-
 @media screen and (max-width: 43.75em) {
   .author__avatar img {
-    max-width: 280px !important;
+    max-width: 160px !important;
   }
 }
 
 @media screen and (max-width: 34.375em) {
   .author__avatar img {
-    max-width: 220px !important;
+    max-width: 140px !important;
   }
 }
