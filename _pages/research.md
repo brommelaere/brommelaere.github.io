@@ -7,7 +7,9 @@ author_profile: true
 
 ## Working Papers
 
-### [Carbon Flux from Wood Bioenergy Subsidies: A Structural Model of Forest Land Use](#) <span style="font-weight:normal;">— <em>Job Market Paper</em> · [<a href="#" target="_blank">current draft</a>]</span>
+### Carbon Flux from Wood Bioenergy Subsidies: A Structural Model of Forest Land Use  
+<span style="font-weight:normal;">— <em>Job Market Paper</em> · [<a href="#" target="_blank">current draft</a>]</span>
+
 
 <details>
   <summary><strong>Abstract (click to expand)</strong></summary>
@@ -18,7 +20,8 @@ Wood bioenergy offers one path to reduce carbon emissions from fossil energy and
 
 ---
 
-### [Market Concentration & Deforestation: Evidence from the Brazilian Soy Industry](#) <span style="font-weight:normal;">· [<a href="#" target="_blank">current draft</a>]</span>
+### Market Concentration & Deforestation: Evidence from the Brazilian Soy Industry  
+<span style="font-weight:normal;">· [<a href="#" target="_blank">current draft</a>]</span>
 
 <details>
   <summary><strong>Abstract (click to expand)</strong></summary>
