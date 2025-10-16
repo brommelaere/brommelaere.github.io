@@ -7,80 +7,67 @@
    ============================================================ */
 
 .masthead {
-  @media screen and (min-width: 64em) {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    border-bottom: 1px solid #e5e5e5 !important;
-  }
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+  margin-bottom: 2rem !important; /* SPACE AFTER NAV BAR */
 }
 
 .masthead__inner-wrap {
-  @media screen and (min-width: 64em) {
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    padding: 0 2rem !important;
-  }
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
 }
 
 .masthead__menu-item {
-  @media screen and (min-width: 64em) {
-    padding-right: 3em !important;
-  }
+  padding-right: 3em !important;
 }
 
 .greedy-nav {
-  @media screen and (min-width: 64em) {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* ============================================================
-   MAIN WRAPPER - ADD SPACE BELOW NAV
+   MAIN WRAPPER
    ============================================================ */
 
 #main {
-  margin-top: 2rem !important; /* SPACE BELOW NAV */
+  margin-top: 0 !important;
   padding-top: 0 !important;
-
-  @media screen and (min-width: 64em) {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 2rem !important;
-    max-width: 1100px !important;
-    margin: 2rem auto 0 !important; /* KEEP SPACE ON DESKTOP */
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 2rem !important;
+  
+  /* MOBILE: Column layout */
+  @media screen and (max-width: 63.9375em) {
+    flex-direction: column !important;
   }
 }
 
 /* ============================================================
-   SIDEBAR - IMAGE LEFT OF TEXT ON MOBILE
+   SIDEBAR
    ============================================================ */
 
 .sidebar {
-  margin-top: 0 !important;
-  margin-bottom: 1em !important;
-  padding-top: 0 !important;
-  margin-right: 0 !important;
-
-  @media screen and (min-width: 64em) {
-    flex: 0 0 auto !important;
-    align-self: flex-start !important;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    padding-left: 0 !important;
-    margin-right: 0 !important;
-    width: auto !important;
-    float: none !important;
-  }
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  float: none !important;
   
-  /* MOBILE: horizontal layout, image left of text */
+  /* MOBILE: Row layout - image LEFT of text */
   @media screen and (max-width: 63.9375em) {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
     gap: 1rem !important;
+    width: 100% !important;
   }
 }
 
@@ -89,9 +76,8 @@
    ============================================================ */
 
 .author__avatar {
-  margin-top: 0 !important;
-  margin-bottom: 0.25rem !important;
-  padding-top: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 
   img {
     max-width: 350px !important;
@@ -101,30 +87,32 @@
     padding: 0 !important;
     margin: 0 !important;
     display: block !important;
+  }
+  
+  /* MOBILE: Smaller, flex-shrink prevents squishing */
+  @media screen and (max-width: 63.9375em) {
+    flex-shrink: 0 !important;
     
-    @media screen and (max-width: 63.9375em) {
-      max-width: 120px !important; /* Smaller on mobile */
-      flex-shrink: 0 !important;
+    img {
+      max-width: 120px !important;
+      width: 120px !important;
     }
   }
 }
 
 /* ============================================================
-   AUTHOR INFO - SHOW ON MOBILE, RIGHT OF IMAGE
+   AUTHOR INFO - Container for name/location/links
    ============================================================ */
 
 .author__content {
   text-align: center !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
   
-  @media screen and (min-width: 64em) {
-    text-align: center !important;
-  }
-  
+  /* MOBILE: Takes remaining space, left-aligned */
   @media screen and (max-width: 63.9375em) {
-    text-align: left !important; /* Left align on mobile */
     flex: 1 !important;
+    text-align: left !important;
   }
 }
 
@@ -150,23 +138,16 @@
 
 .author__urls-wrapper {
   margin-top: 0.2rem !important;
-
-  @media screen and (min-width: 64em) {
-    display: block !important;
-  }
+  display: block !important;
 
   button {
     display: none !important;
   }
-  
-  @media screen and (max-width: 63.9375em) {
-    display: block !important; /* SHOW ON MOBILE */
-  }
 }
 
 .author__urls {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 
   li {
     text-align: center !important;
@@ -176,9 +157,8 @@
   }
 
   a {
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   @media screen and (max-width: 63.9375em) {
@@ -194,37 +174,30 @@
    ============================================================ */
 
 .page {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  margin-left: 0 !important;
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
   float: none !important;
-
-  @media screen and (min-width: 64em) {
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-    padding-top: 0 !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    width: auto !important;
-  }
 }
 
 .page__inner-wrap {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .page__title {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .page__content {
   font-size: 1.05rem !important;
   line-height: 1.7 !important;
   max-width: 700px !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 
   p {
     margin-bottom: 1.2rem !important;
@@ -235,8 +208,8 @@
   }
 
   p:first-child {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   @media screen and (max-width: 63.9375em) {
@@ -265,11 +238,13 @@
 @media screen and (max-width: 43.75em) {
   .author__avatar img {
     max-width: 100px !important;
+    width: 100px !important;
   }
 }
 
 @media screen and (max-width: 34.375em) {
   .author__avatar img {
     max-width: 80px !important;
+    width: 80px !important;
   }
 }
