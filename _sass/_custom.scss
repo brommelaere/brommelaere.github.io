@@ -56,6 +56,81 @@ $align-offset: 0px !default;
   }
 }
 
+/* Add this near the top of your custom stylesheet */
+
+/* 1 inch gap variable (CSS 1in = 96px on most devices) */
+:root {
+  --nav-gap: 1in; /* change to 96px if you prefer an explicit pixel value */
+  --nav-height: 0px; /* set this to your navbar's height if known, e.g. 56px */
+}
+
+/* If your navbar is fixed at top, ensure it has a high z-index and set --nav-height
+   Example (uncomment and adjust if you need the navbar fixed here):
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 56px; // if you know the height, set it and also set --nav-height above
+}
+*/
+
+/* Primary offset: move the main content down by nav height + gap */
+main,
+.page,
+.site-content,
+.hero,
+.jumbotron {
+  /* Prefer margin-top so background of these sections is not overlapped by fixed nav */
+  margin-top: calc(var(--nav-height) + var(--nav-gap));
+  /* If you instead use padding, use padding-top and keep margin intact for layout */
+}
+
+/* If your layout uses a direct sibling after header, this selector helps:
+header + main,
+.navbar + .container,
+.site-header + .hero {
+  margin-top: calc(var(--nav-height) + var(--nav-gap));
+} */
+
+/* Make sure hero/banner images and headings don't have extra negative margins */
+.hero img,
+.jumbotron img,
+.article-featured-image,
+.post img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* optional small extra breathing room for images */
+  margin-top: 0.25rem;
+}
+
+/* Reduce the gap on smaller screens to avoid very large gaps on mobile */
+@media (max-width: 768px) {
+  :root {
+    --nav-gap: 0.6in; /* or 56px */
+  }
+  main,
+  .page,
+  .site-content,
+  .hero,
+  .jumbotron {
+    margin-top: calc(var(--nav-height) + var(--nav-gap));
+  }
+}
+
+/* Fallback (if browser doesn't support custom properties) */
+@supports not ( (--nav-gap: 1in) ) {
+  main,
+  .page,
+  .site-content,
+  .hero,
+  .jumbotron {
+    margin-top: 96px; /* fallback approximating 1in */
+  }
+}
+
 /* ============================================================
    SIDEBAR - STAYS LEFT ON MOBILE
    ============================================================ */
