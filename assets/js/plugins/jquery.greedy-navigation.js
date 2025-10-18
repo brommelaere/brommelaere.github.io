@@ -13,6 +13,8 @@ var $hlinks = $('#site-nav .hidden-links');
 
 var breaks = [];
 
+/* updateNav() — ensure only one inline body padding top is set (masthead + extra gap) */
+
 function updateNav() {
 
   var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
@@ -33,12 +35,9 @@ function updateNav() {
       $btn.removeClass("hidden");
     }
 
-    // The visible list is not overflowing
   } else {
 
-    // There is space for another item in the nav
     while (breaks.length > 0 && availableSpace > breaks[breaks.length - 1]) {
-      // Move the item to the visible list
       if ($vlinks_persist_tail.children().length > 0) {
         $hlinks.children().first().insertBefore($vlinks_persist_tail);
       } else {
@@ -47,7 +46,6 @@ function updateNav() {
       breaks.pop();
     }
 
-    // Hide the dropdown btn if hidden list is empty
     if (breaks.length < 1) {
       $btn.addClass('hidden');
       $btn.removeClass('close');
@@ -58,13 +56,17 @@ function updateNav() {
   // Keep counter updated
   $btn.attr("count", breaks.length);
 
-  // update masthead height and the body/sidebar top padding
+  // ======== MASTHEAD OFFSET (single source of truth) ========
+  // Add an extra 1 inch gap (≈96px) after the masthead height so everything shifts down equally.
+  var extraGap = 96; // 1 inch in px (adjust if needed)
   var mastheadHeight = $('.masthead').height();
-  $('body').css('padding-top', mastheadHeight + 'px');
+  $('body').css('padding-top', (mastheadHeight + extraGap) + 'px');
+
+  // Sidebar: only set its padding-top when needed (same value)
   if ($(".author__urls-wrapper button").is(":visible")) {
     $(".sidebar").css("padding-top", "");
   } else {
-    $(".sidebar").css("padding-top", mastheadHeight + "px");
+    $(".sidebar").css("padding-top", (mastheadHeight + extraGap) + "px");
   }
 
 }
