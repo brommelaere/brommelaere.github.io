@@ -333,3 +333,48 @@ header + main,
     max-width: 140px !important;
   }
 }
+
+/* ============================================================
+   FINAL OVERRIDE: ENSURE CONTENT IS OFFSET BELOW NAVBAR
+   Placed at end so it wins over earlier !important resets
+   ============================================================ */
+
+/* Keep the variables where they are; update them here if needed */
+:root {
+  --nav-gap: 1in;    /* 1 inch gap (≈96px) */
+  --nav-height: 0px; /* set to your masthead height if masthead is fixed */
+}
+
+/* Make sure masthead is above the content */
+.masthead {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Strong, high-specificity override to move content down */
+body #main,
+body main,
+body .page,
+body .page__inner-wrap,
+body .page__content,
+body .author__avatar,
+body .hero,
+body .jumbotron,
+body .site-content {
+  margin-top: calc(var(--nav-height) + var(--nav-gap)) !important;
+  padding-top: 0 !important;
+}
+
+/* Mobile: smaller gap */
+@media (max-width: 768px) {
+  :root { --nav-gap: 0.6in; }
+  body #main,
+  body main,
+  body .page,
+  body .page__inner-wrap,
+  body .hero,
+  body .jumbotron,
+  body .site-content {
+    margin-top: calc(var(--nav-height) + var(--nav-gap)) !important;
+  }
+}
