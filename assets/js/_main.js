@@ -140,3 +140,29 @@ $(document).ready(function () {
   });
 
 });
+
+
+/* Inside document.ready: compute masthead height + extraGap for smooth scroll */
+
+$(document).ready(function () {
+  const scssLarge = 925; // unchanged
+
+  // Keep this same extra gap as greedy-navigation.js
+  const extraGap = 96; // 1 inch ≈ 96px
+
+  // compute current masthead height (fallback 70)
+  const mastheadEl = document.querySelector('.masthead');
+  const mastheadHeight = mastheadEl ? mastheadEl.offsetHeight : 70;
+
+  // Use masthead + extra gap for scroll offset
+  const scssMastheadHeight = mastheadHeight + extraGap;
+
+  // ... other initialization unchanged ...
+
+  // Init smooth scroll, use the combined height so anchors land in view
+  $("a").smoothScroll({
+    offset: -scssMastheadHeight,
+    preventDefault: false,
+  });
+
+});
