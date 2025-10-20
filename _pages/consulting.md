@@ -1,7 +1,9 @@
 ---
-layout: archive
+layout: single
+title: ""                  # remove H1
 permalink: /consulting/
 author_profile: true
+classes: [no-title, wide]
 ---
 
 ## Competition & Regulatory Economics
