@@ -1,6 +1,5 @@
 ---
 layout: single
-title: ""
 permalink: /research/
 author_profile: true
 classes: [no-title, wide]
