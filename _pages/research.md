@@ -35,11 +35,26 @@ The Brazilian soy industry is a leading cause of deforestation in several major 
 ## Work in Progress
 
 - **Incentives and Corruption in Panama: Evidence from Gasoline Markets**  
-  *with Steven Lehrer and Decio Coviello*  
+  *with Steven Lehrer and Decio Coviello*
+  <details>
+  <summary><strong>Abstract (click to expand)</strong></summary>
+
+  This paper studies the misuse of public funds using transaction-level data from Panama’s national
+  fuel card program, covering over two million purchases by government employees. We document both
+  passive waste, arising from weak cost-minimization incentives, and active misuse, where employees
+  personally benefit. We use the fuel programs rules to develop waste and misuse measures and exploit
+  two distinct sources of variation in the incentives to misuse funds. A local price shock from a merger
+  involving the contracted fuel supplier reduces misuse across most agencies, whereas, national fuel price
+  shocks driven by exogenous oil market events increase it. We develop an economic model of expected
+  profit and detection risk to explain these behavioral responses and their heterogeneity across agencies.
+  Our estimates imply an elasticity of supply of stolen fuels between 2.7 and 4.6, meaning that a 10%
+  rise in fuel prices increases stolen fuel by 27-46%.
+
+
+  </details>
+  
 - **Environmental Regulation of Wood Processing Mills: The Boiler MACT Rule**  
 - **Forest Market Dynamics and Global Carbon Leakage of EU Bioenergy Subsidies**  
-- **The Clean Water Act and the Greening of American Cities**  
-  *with Stephan Heblich*
 
 ---
 
