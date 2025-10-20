@@ -1,0 +1,41 @@
+/* Hide the big H1 “page title” when the page opts in with classes: [no-title] */
+.no-title .page__title {
+  display: none !important;
+}
+
+/* Lower the author card (sidebar) on the landing page only */
+#main:has(> article.landing-offset) .sidebar {
+  margin-top: 1.75rem; /* Adjust in 0.25rem steps to taste */
+}
+
+/* Slightly widen reading width on pages that opt in with classes: [wide] */
+@media (min-width: 992px) {
+  article.wide .page__content {
+    max-width: 48rem; /* ~768px. Increase if you want a wider measure */
+  }
+}
+
+/* When there’s no title bar, ensure the first content block starts flush at the top */
+.no-title .page__content > *:first-child {
+  margin-top: 0;
+}
+
+/* Teaching page clean-up: prevent awkward wrapping and keep metadata tidy */
+.teaching-page .page__content ul {
+  max-width: 56rem;
+}
+.teaching-page .page__content ul li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5rem;
+}
+.teaching-page .page__content ul li strong,
+.teaching-page .page__content ul li em,
+.teaching-page .page__content ul li time {
+  white-space: nowrap; /* keep codes/titles/years together when possible */
+}
+/* If hard <br> tags were used, suppress them to avoid forced breaks */
+.teaching-page .page__content ul li br {
+  display: none;
+}
