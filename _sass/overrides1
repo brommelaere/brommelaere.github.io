@@ -1,0 +1,45 @@
+/* Hide page H1 when the page supplies the 'no-title' class */
+.no-title .page__title {
+  display: none !important;
+}
+
+/* Add a small top offset to the sidebar author card on the landing page only.
+   This uses :has(), supported by modern browsers, to target pages whose <article>
+   carries the 'landing-offset' class. */
+#main:has(> article.landing-offset) .sidebar {
+  margin-top: 1.75rem; /* tweak value to taste */
+}
+
+/* Slightly widen reading width on pages that opt-in with 'wide'.
+   Minimal Mistakes/AcademicPages already has a 'wide' utility; this gently extends it. */
+@media (min-width: 992px) {
+  article.wide .page__content {
+    max-width: 48rem; /* ~768px; increase/decrease as desired */
+  }
+}
+
+/* Align the first text block flush to the top when there's no title bar. */
+.no-title .page__content > *:first-child {
+  margin-top: 0;
+}
+
+/* Teaching page clean-up: prevent ugly wraps and keep metadata inline */
+.teaching-page .page__content ul {
+  max-width: 56rem; /* give the list some extra breathing room */
+}
+.teaching-page .page__content ul li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5rem;
+}
+/* Keep short fragments on one line if possible */
+.teaching-page .page__content ul li strong,
+.teaching-page .page__content ul li em,
+.teaching-page .page__content ul li time {
+  white-space: nowrap;
+}
+/* If any items were authored with hard <br> tags, suppress them to avoid forced breaks */
+.teaching-page .page__content ul li br {
+  display: none;
+}
