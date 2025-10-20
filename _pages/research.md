@@ -1,5 +1,6 @@
 ---
 layout: single
+title: ""                  # hide H1
 permalink: /research/
 author_profile: true
 classes: [no-title, wide]
