@@ -5,9 +5,7 @@ permalink: /consulting/
 author_profile: true
 ---
 
-## Consulting Experience
-
-### Competition & Regulatory Economics
+## Competition & Regulatory Economics
 
 **Price Fixing & Class Action Analysis**  
 -   Assessed the economic implications of documentary evidence and econometrically estimated overcharges resulting from alleged price fixing in Canadian and U.S. class action cases.
@@ -27,7 +25,7 @@ author_profile: true
 
 ---
 
-### Labor, Environment & Infrastructure
+## Labor, Environment & Infrastructure
 
 **Employment Equity Analysis**  
 - Conducted statistical analyses of compensation, performance, and promotion outcomes at a major pharmaceutical firm to determine if data supported class-wide gender discrimination allegations.
@@ -44,5 +42,6 @@ author_profile: true
 **Sustainable Buildings**  
 - Led the development of economic models for software that automates financial, environmental, and social benefit calculations and risk assessments for sustainability investments in office, warehouse, and residential buildings.
 - Determined the economic value of energy and water efficiency improvements, indoor air quality, and waste management investments for Prologis warehouses.  
+
 ---
 
