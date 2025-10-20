@@ -14,4 +14,4 @@ My job market paper develops a dynamic structural model of forest harvesting and
 
 I will be on the job market in 2025–2026.
 
-<a href="/files/cv.pdf" class="btn btn--primary">Download CV</a>
+<a href="assets/benrommelaere_cv.pdf" download>Download CV</a>
