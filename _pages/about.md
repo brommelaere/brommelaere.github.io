@@ -1,8 +1,9 @@
 ---
 permalink: /
 title: ""
-excerpt: "About me"
 author_profile: true
+layout: single
+classes: [landing-offset, wide]
 redirect_from: 
   - /about/
   - /about.html
