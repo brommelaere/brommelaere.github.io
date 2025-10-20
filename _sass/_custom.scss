@@ -225,7 +225,7 @@ body {
 .page__content {
   font-size: 1.05rem !important;
   line-height: 1.7 !important;
-  max-width: 700px !important;
+  max-width: 700px !important; /* default width */
   margin-top: 0 !important;
   padding-top: 0 !important;
 
@@ -247,6 +247,50 @@ body {
       text-align: left !important;
     }
   }
+}
+
+/* Opt‑in wider reading width for selected pages */
+@media (min-width: 992px) {
+  article.wide .page__content {
+    max-width: 48rem !important; /* ~768px; adjust if you want a wider measure */
+  }
+}
+
+/* When we hide the big H1, ensure first content aligns to the top of the image */
+.no-title .page__title {
+  display: none !important;
+}
+.no-title .page__content > *:first-child {
+  margin-top: 0 !important;
+}
+
+/* Lower the author card only on the landing (About) page when it has class 'landing-offset' */
+#main:has(> article.landing-offset) .sidebar {
+  margin-top: 1.5rem !important; /* tweak 1.25–2.0rem to taste */
+}
+
+/* ============================================================
+   TEACHING PAGE TIDY-UP
+   ============================================================ */
+
+.teaching-page .page__content ul {
+  max-width: 56rem !important;
+}
+.teaching-page .page__content ul li {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: baseline !important;
+  column-gap: 0.5rem !important;
+}
+/* Keep codes/titles/years from breaking awkwardly */
+.teaching-page .page__content ul li strong,
+.teaching-page .page__content ul li em,
+.teaching-page .page__content ul li time {
+  white-space: nowrap !important;
+}
+/* If content has manual <br>, suppress to avoid forced wraps */
+.teaching-page .page__content ul li br {
+  display: none !important;
 }
 
 /* ============================================================
