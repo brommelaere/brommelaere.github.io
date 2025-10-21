@@ -6,18 +6,6 @@ author_profile: true
 classes: [no-title, research-page]
 ---
 
-<style>
-/* Research page spacing tweaks */
-.research-page p:has(+ details) { margin-bottom: 0 !important; }           /* 0 space between i and ii */
-.research-page p:has(+ details) + details { 
-  margin-top: 0 !important; 
-  margin-bottom: 1.25rem;                                                   /* space after ii before next item */
-}
-
-/* Optional: keep spacing consistent whether details is open or closed */
-.research-page details[open] { margin-bottom: 1.25rem; }
-</style>
-
 ## Working Papers
 
 ### Carbon Flux from Wood Bioenergy Subsidies: A Structural Model of Forest Land Use  
