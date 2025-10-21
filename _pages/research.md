@@ -6,7 +6,7 @@ author_profile: true
 classes: [no-title, research-page]
 ---
 
-## Working Papers1
+## Working Papers
 
 ### Carbon Flux from Wood Bioenergy Subsidies: A Structural Model of Forest Land Use  
 <span style="font-weight:normal;">— <em>Job Market Paper</em> · [<a href="#" target="_blank">current draft</a>]</span>
