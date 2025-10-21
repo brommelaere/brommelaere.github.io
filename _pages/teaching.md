@@ -11,59 +11,53 @@ classes: [no-title, teaching-page, wide]
 ### University of Toronto, Department of Economics
 
 <style>
-/* Hard reset: remove ALL inherited table styling just inside this wrapper */
-.teaching-page .course-table-reset table,
-.teaching-page .course-table-reset table * {
-  all: unset !important;              /* blow away every inherited style */
+/* Borderless two‑column grid for courses (no table => no theme borders) */
+.teaching-page .course-rows {
+  list-style: none;
+  margin: 0.25rem 0 0 0;
+  padding: 0;
 }
-
-/* Re-apply only the minimal layout so it behaves like a clean, borderless table */
-.teaching-page .course-table-reset table {
-  display: table !important;
-  width: 100% !important;
-  table-layout: fixed !important;     /* long titles wrap; year stays narrow */
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
+.teaching-page .course-rows li {
+  display: grid;
+  grid-template-columns: 1fr auto; /* title left, year right */
+  column-gap: 1rem;
+  align-items: baseline;
+  padding: 0.20rem 0;
+  border: 0 !important;
   background: transparent !important;
+  box-shadow: none !important;
 }
-.teaching-page .course-table-reset tr { display: table-row !important; }
-.teaching-page .course-table-reset td {
-  display: table-cell !important;
-  padding: 0.20rem 0 !important;
-  vertical-align: baseline !important;
+.teaching-page .course-rows .title {
+  font-weight: 400;               /* no bold */
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
-.teaching-page .course-table-reset td.title {
-  font-weight: 400 !important;        /* no bold */
-  overflow-wrap: anywhere !important;
-  padding-right: 1rem !important;
+.teaching-page .course-rows .year {
+  white-space: nowrap;
+  justify-self: end;              /* flush-right */
+  text-align: right;
 }
-.teaching-page .course-table-reset td.year {
-  width: 1% !important;
-  white-space: nowrap !important;
-  text-align: right !important;       /* flush-right */
-}
-
-/* Small screens: let the year drop below neatly */
+/* Very small screens: let year drop below neatly */
 @media (max-width: 34em) {
-  .teaching-page .course-table-reset tr { display: grid !important; grid-template-columns: 1fr !important; }
-  .teaching-page .course-table-reset td.year { text-align: left !important; padding-top: 0.1rem !important; }
+  .teaching-page .course-rows li { grid-template-columns: 1fr; }
+  .teaching-page .course-rows .year {
+    justify-self: start;
+    text-align: left;
+    padding-top: 0.1rem;
+  }
 }
 </style>
 
-<div class="course-table-reset">
-<table class="course-table">
-  <tbody>
-    <tr><td class="title">ECO414 / ECO1960 – Energy and Regulation</td><td class="year">2020–2025</td></tr>
-    <tr><td class="title">ECO314 – Energy and the Environment</td><td class="year">2020–2025</td></tr>
-    <tr><td class="title">ECO403 – Topics in Development Economics and Policy</td><td class="year">2024</td></tr>
-    <tr><td class="title">ENV462 – Energy and Environment: Economics, Politics, and Sustainability</td><td class="year">2021–2024</td></tr>
-    <tr><td class="title">ECO101 – Principles of Microeconomics</td><td class="year">2023</td></tr>
-    <tr><td class="title">ECO202 – Macroeconomic Theory and Policy</td><td class="year">2022</td></tr>
-    <tr><td class="title">ENV347 – The Power of Economic Ideas</td><td class="year">2022</td></tr>
-    <tr><td class="title">ECO439 – Empirical Methods in Microeconomics</td><td class="year">2021</td></tr>
-    <tr><td class="title">ECO313 – Environmental Economics and Policies</td><td class="year">2020–2021</td></tr>
-    <tr><td class="title">ECO220 – Introduction to Data Analysis and Applied Econometrics</td><td class="year">2019–2020</td></tr>
-    <tr><td class="title">ECO227 – Foundations of Econometrics</td><td class="year">2019</td></tr>
-  </tbody>
-</table>
-</div>
+<ul class="course-rows">
+  <li><span class="title">ECO414 / ECO1960 – Energy and Regulation</span><span class="year">2020–2025</span></li>
+  <li><span class="title">ECO314 – Energy and the Environment</span><span class="year">2020–2025</span></li>
+  <li><span class="title">ECO403 – Topics in Development Economics and Policy</span><span class="year">2024</span></li>
+  <li><span class="title">ENV462 – Energy and Environment: Economics, Politics, and Sustainability</span><span class="year">2021–2024</span></li>
+  <li><span class="title">ECO101 – Principles of Microeconomics</span><span class="year">2023</span></li>
+  <li><span class="title">ECO202 – Macroeconomic Theory and Policy</span><span class="year">2022</span></li>
+  <li><span class="title">ENV347 – The Power of Economic Ideas</span><span class="year">2022</span></li>
+  <li><span class="title">ECO439 – Empirical Methods in Microeconomics</span><span class="year">2021</span></li>
+  <li><span class="title">ECO313 – Environmental Economics and Policies</span><span class="year">2020–2021</span></li>
+  <li><span class="title">ECO220 – Introduction to Data Analysis and Applied Econometrics</span><span class="year">2019–2020</span></li>
+  <li><span class="title">ECO227 – Foundations of Econometrics</span><span class="year">2019</span></li>
+</ul>
