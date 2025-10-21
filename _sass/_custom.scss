@@ -448,46 +448,48 @@ body {
   }
 }
 
-/* === Research page spacing fixes (fixed2) === */
+/* === Research page spacing (tighten before Abstract; add clear space after) === */
 
-/* 1) Tighten title-to-meta spacing */
+/* Titles tight to their meta line */
 .research-page .page__content h3 {
   margin-bottom: 0.3rem !important;
 }
 
-/* Working Papers: the meta line after an h3 is a span — make it behave like a compact block */
+/* Working Papers: meta span right after h3 acts like a compact block */
 .research-page .page__content h3 + span {
   display: block !important;
-  margin-top: 0.1rem !important;
+  margin-top: 0.15rem !important;
+  margin-bottom: 0.35rem !important; /* small gap before Abstract */
+}
+
+/* Work in Progress: your title + “with …” live in one paragraph.
+   Make any top-level paragraph just before <details> compact. */
+.research-page .page__content > p + details {
+  margin-top: 0.35rem !important;    /* small gap before Abstract toggle */
+}
+/* Also trim the bottom margin of that preceding paragraph (top-level only) */
+.research-page .page__content > p {
+  margin-bottom: 0.5rem !important;  /* default for top-level paras on research page */
+}
+/* When a top-level paragraph is immediately followed by details, trim further */
+.research-page .page__content > p:has(+ details) { /* if your browser ignores :has, the next rule still handles the gap via details' margin-top */
   margin-bottom: 0.35rem !important;
 }
 
-/* Work in Progress: title is a paragraph with only a <strong> inside.
-   Make that title paragraph compact and treat the next paragraph
-   (the “with …” line) like a meta line with tight spacing. */
-.research-page .page__content p > strong:only-child {
-  display: block !important;
-  margin-bottom: 0.3rem !important;
-}
-.research-page .page__content p > strong:only-child + p {
-  margin-top: 0.1rem !important;    /* small gap between title and “with …” */
-  margin-bottom: 0.35rem !important; /* small gap before the Abstract toggle */
-}
-
-/* 2) Make the Abstract toggle sit closer to what precedes it,
-      and ensure a consistent gap after the block */
-.research-page .page__content summary {
-  margin: 0 !important;
-}
+/* Consistent space after the Abstract block (closed or open) */
 .research-page .page__content details {
-  margin-top: 0.35rem !important;   /* smaller space before the toggle */
-  margin-bottom: 1.0rem !important; /* clear space after (closed or open) */
+  margin-bottom: 1.0rem !important;  /* clear space before the next item */
 }
+/* When Abstract is open, give a touch more breathing room */
 .research-page .page__content details[open] {
-  margin-bottom: 1.15rem !important; /* a touch more space when open */
+  margin-bottom: 1.15rem !important;
+}
+/* Inside Abstract text: keep internal paragraphs neat without adding extra bottom gap */
+.research-page .page__content details p:last-child {
+  margin-bottom: 0.2rem !important;
 }
 
-/* 3) Keep your horizontal separators clean and even */
+/* Horizontal rules between entries */
 .research-page .page__content hr {
-  margin: 1.2rem 0 !important;
+  margin: 1.1rem 0 1.3rem !important;
 }
