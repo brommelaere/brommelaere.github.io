@@ -11,57 +11,47 @@ classes: [no-title, teaching-page, wide]
 ### University of Toronto, Department of Economics
 
 <style>
-/* Teaching: completely borderless, transparent table; years flush-right */
-.teaching-page .course-table {
-  width: 100%;
-  margin: 0.25rem 0 0 0;
-  border-collapse: separate !important;   /* avoid inherited collapsed borders */
+/* Hard reset: remove ALL inherited table styling just inside this wrapper */
+.teaching-page .course-table-reset table,
+.teaching-page .course-table-reset table * {
+  all: unset !important;              /* blow away every inherited style */
+}
+
+/* Re-apply only the minimal layout so it behaves like a clean, borderless table */
+.teaching-page .course-table-reset table {
+  display: table !important;
+  width: 100% !important;
+  table-layout: fixed !important;     /* long titles wrap; year stays narrow */
+  border-collapse: separate !important;
   border-spacing: 0 !important;
-  table-layout: fixed;                    /* long titles wrap */
-}
-
-/* Remove ALL borders/shadows/striping from the table and every child node */
-.teaching-page .course-table,
-.teaching-page .course-table * {
-  border: 0 !important;
-  border-block: 0 !important;
-  border-inline: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
   background: transparent !important;
-  background-image: none !important;
 }
-
-/* Cell layout */
-.teaching-page .course-table td {
-  padding: 0.2rem 0 !important;
+.teaching-page .course-table-reset tr { display: table-row !important; }
+.teaching-page .course-table-reset td {
+  display: table-cell !important;
+  padding: 0.20rem 0 !important;
   vertical-align: baseline !important;
 }
-.teaching-page .course-table td.title {
-  font-weight: 400 !important;            /* no bold */
+.teaching-page .course-table-reset td.title {
+  font-weight: 400 !important;        /* no bold */
   overflow-wrap: anywhere !important;
   padding-right: 1rem !important;
 }
-.teaching-page .course-table td.year {
-  width: 1% !important;                   /* keep year column narrow */
+.teaching-page .course-table-reset td.year {
+  width: 1% !important;
   white-space: nowrap !important;
-  text-align: right !important;           /* flush-right */
+  text-align: right !important;       /* flush-right */
 }
 
-/* Small screens: let year drop below neatly */
+/* Small screens: let the year drop below neatly */
 @media (max-width: 34em) {
-  .teaching-page .course-table tr {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-  }
-  .teaching-page .course-table td.year {
-    text-align: left !important;
-    padding-top: 0.1rem !important;
-  }
+  .teaching-page .course-table-reset tr { display: grid !important; grid-template-columns: 1fr !important; }
+  .teaching-page .course-table-reset td.year { text-align: left !important; padding-top: 0.1rem !important; }
 }
 </style>
 
-<table class="course-table" style="border:0; border-collapse:separate; border-spacing:0; outline:0; box-shadow:none; background:transparent;">
+<div class="course-table-reset">
+<table class="course-table">
   <tbody>
     <tr><td class="title">ECO414 / ECO1960 – Energy and Regulation</td><td class="year">2020–2025</td></tr>
     <tr><td class="title">ECO314 – Energy and the Environment</td><td class="year">2020–2025</td></tr>
@@ -76,3 +66,4 @@ classes: [no-title, teaching-page, wide]
     <tr><td class="title">ECO227 – Foundations of Econometrics</td><td class="year">2019</td></tr>
   </tbody>
 </table>
+</div>
