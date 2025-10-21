@@ -18,10 +18,10 @@ classes: [no-title, wide]
 - Estimated cross-price elasticities between brands and simulated merger impacts in consumer product markets.  
 - Provided econometric analysis of price impacts from local retail store consolidation and determined optimal divestment strategies to remedy competition concerns in several retail mergers.
 
-**Telecommunications Regulation (CRTC)**  
+**Telecommunications Regulation**  
 - Assessed whether proposed regulatory changes balanced competition with investment incentives in network quality across multiple submissions to the CRTC.
 
-**Financial Regulation (Finance Canada)**  
+**Financial Regulation**  
 - Evaluated competitive impacts of proposed regulatory changes allowing major financial intermediaries to offer insurance services, supporting a regulatory ruling by Finance Canada.
 
 ---
