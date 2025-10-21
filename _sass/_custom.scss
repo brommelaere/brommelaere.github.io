@@ -76,6 +76,20 @@ body {
   padding-top: var(--nav-extra-gap);
 }
 
+/* Nav: force white background at all sizes (prevents grey on mobile) */
+.masthead,
+.masthead__inner-wrap,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links,
+.greedy-nav .menu-toggle {
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Keep the subtle bottom border on mobile too */
+.masthead { border-bottom: 1px solid #e5e5e5 !important; }
+
 /* Global: force white background everywhere */
 html, body,
 .site,
@@ -122,7 +136,9 @@ body {
   @media screen and (max-width: 55.999em) {
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
+    width: 100% !important;      
+    text-align: center !important;
   }
 }
 
@@ -147,10 +163,18 @@ body {
     /* MOBILE: smaller but stays left */
     @media screen and (max-width: 55.999em) {
       max-width: none !important;
+      width: clamp(320px, 90vw, 820px) !important;
+      margin: 0 auto !important; 
     }
   }
 }
-
+@media screen and (max-width: 55.999em) {
+  .author__avatar {
+    margin: 0 auto !important;     /* center the wrapper */
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
 /* ============================================================
    AUTHOR INFO
    ============================================================ */
