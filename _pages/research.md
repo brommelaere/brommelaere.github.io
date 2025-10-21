@@ -6,51 +6,6 @@ author_profile: true
 classes: [no-title, research-page]
 ---
 
-<!-- Page-local spacing fixes: tighten before Abstract; add clear space after;
-     and remove the top gap caused by the inline <style> being first. -->
-<style>
-/* Remove the top gap before the first section heading on this page */
-.research-page .page__content h2:first-of-type { margin-top: 0 !important; }
-
-/* Working Papers: title -> meta (“— Job Market Paper …”) is compact */
-.research-page .page__content h3 { margin-bottom: 0.25rem !important; }
-.research-page .page__content h3 + p {
-  margin-top: 0.05rem !important;
-  margin-bottom: 0.30rem !important; /* small gap before Abstract */
-}
-
-/* Work in Progress: the “with …” line paragraph sits just above <details> */
-.research-page .page__content > p + details {
-  margin-top: 0.25rem !important;    /* small gap before Abstract */
-}
-
-/* Abstract block spacing and reset any theme padding/border that creates big gaps */
-.research-page .page__content details {
-  margin: 0.25rem 0 1.00rem !important; /* small gap before; consistent gap after */
-  padding-top: 0 !important;
-  border-top: 0 !important;
-}
-.research-page .page__content details > summary {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.research-page .page__content details[open] {
-  margin-bottom: 1.10rem !important; /* a touch more when open */
-}
-
-/* Ensure the next item (title/paragraph/separator) starts cleanly */
-.research-page .page__content details + h3,
-.research-page .page__content details + p,
-.research-page .page__content details + hr {
-  margin-top: 0.90rem !important;
-}
-
-/* Tighter separators between entries */
-.research-page .page__content hr {
-  margin: 0.80rem 0 1.00rem !important;
-}
-</style>
-
 ## Working Papers
 
 ### Carbon Flux from Wood Bioenergy Subsidies: A Structural Model of Forest Land Use  
