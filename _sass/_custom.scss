@@ -448,48 +448,53 @@ body {
   }
 }
 
-/* === Research page spacing fixes (match current Markdown output) === */
-/* Tighten title → meta (the line with “— Job Market Paper …”) */
-.research-page .page__content h3 {
-  margin-bottom: 0.25rem !important;
-}
-/* The meta line is a paragraph directly after the h3 */
+/* === Research page spacing (matches current markup in fixed2) === */
+
+/* 1) Title → meta (tight) */
+.research-page .page__content h3 { margin-bottom: 0.25rem !important; }
+
+/* The “— Job Market Paper … / current draft” line is a paragraph after h3 */
 .research-page .page__content h3 + p {
   margin-top: 0.05rem !important;
-  margin-bottom: 0.35rem !important; /* small gap before the Abstract toggle */
+  margin-bottom: 0.35rem !important; /* small gap before Abstract */
 }
 
-/* Work in Progress: the title + “with …” live in one paragraph;
-   make any top-level paragraph just before <details> compact */
-.research-page .page__content > p + details {
-  margin-top: 0.25rem !important;   /* small gap before Abstract */
+/* 2) Work in Progress: the “with …” line is a paragraph that precedes <details>.
+   Make that paragraph compact so the Abstract toggle sits closer. */
+.research-page .page__content p > em:only-child {
+  /* this targets the “with …” line specifically */
+  display: inline;                         /* keep it inline within the paragraph */
 }
-/* Trim the default bottom margin on top-level paragraphs on the research page */
-.research-page .page__content > p {
-  margin-bottom: 0.5rem !important;
-}
-
-/* Abstract block: small gap before; clear, consistent gap after (open or closed) */
-.research-page .page__content details {
+.research-page .page__content p:has(> em:only-child) {
+  /* compact the paragraph that contains only the 'with …' line */
   margin-top: 0.2rem !important;
-  margin-bottom: 1.0rem !important; /* space to next entry */
+  margin-bottom: 0.3rem !important;
+}
+
+/* 3) Abstract block: remove any top padding/border that creates big gaps,
+      keep summary snug, and add consistent space after the block. */
+.research-page .page__content details {
+  padding-top: 0 !important;
+  border-top: 0 !important;
+  margin-top: 0.2rem !important;     /* small gap before the “Abstract” toggle */
+  margin-bottom: 1.0rem !important;  /* space before next entry */
+}
+.research-page .page__content details > summary {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .research-page .page__content details[open] {
   margin-bottom: 1.15rem !important; /* a touch more when open */
 }
-/* Keep the summary itself snug */
-.research-page .page__content details > summary {
-  margin: 0 !important;
-}
 
-/* Ensure space to next title or separator, regardless of pattern */
+/* 4) Ensure the next item has a clean start regardless of type */
 .research-page .page__content details + h3,
 .research-page .page__content details + p,
 .research-page .page__content details + hr {
-  margin-top: 1rem !important;
+  margin-top: 0.9rem !important;
 }
 
-/* Horizontal rules between entries */
+/* 5) Horizontal rules between entries (Working Papers) */
 .research-page .page__content hr {
   margin: 1rem 0 1.1rem !important;
 }
