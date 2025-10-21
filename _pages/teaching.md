@@ -3,7 +3,7 @@ layout: single
 title: ""
 permalink: /teaching/
 author_profile: true
-classes: [teaching-page, wide]
+classes: [no-title, teaching-page]
 ---
 
 ## Teaching Assistantships
