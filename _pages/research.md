@@ -5,6 +5,32 @@ permalink: /research/
 author_profile: true
 classes: [no-title, research-page]
 ---
+<!-- Page-local spacing fixes: tighten before Abstract; add clear space after -->
+<style>
+/* Title → meta line (the “— Job Market Paper …” line) */
+.research-page .page__content h3 { margin-bottom: 0.25rem; }
+.research-page .page__content h3 + p { margin-top: 0.05rem; margin-bottom: 0.30rem; }
+
+/* Work in Progress: the “with …” line is a paragraph before <details> */
+.research-page .page__content > p + details { margin-top: 0.25rem; }
+
+/* Abstract block: small gap before; consistent gap after (open or closed) */
+.research-page .page__content details {
+  margin: 0.25rem 0 1.00rem;
+  padding-top: 0;
+  border-top: 0;
+}
+.research-page .page__content details > summary { margin: 0; padding: 0; }
+.research-page .page__content details[open] { margin-bottom: 1.10rem; }
+
+/* Ensure the next item starts cleanly (title, paragraph, or rule) */
+.research-page .page__content details + h3,
+.research-page .page__content details + p,
+.research-page .page__content details + hr { margin-top: 0.90rem; }
+
+/* Thinner, tighter separators between entries */
+.research-page .page__content hr { margin: 0.80rem 0 1.00rem; }
+</style>
 
 ## Working Papers
 
