@@ -3,7 +3,7 @@ layout: single
 title: ""
 permalink: /
 author_profile: true
-classes: [landing-offset]
+classes: [landing-offset, home-narrow]
 ---
 
 I am a PhD candidate in Economics at the University of Toronto. My research uses tools from empirical industrial organization and applied microeconomics to study environmental regulation.
