@@ -11,53 +11,84 @@ classes: [no-title, teaching-page, wide]
 ### University of Toronto, Department of Economics
 
 <style>
-/* Borderless two‑column grid for courses (no table => no theme borders) */
-.teaching-page .course-rows {
-  list-style: none;
-  margin: 0.25rem 0 0 0;
-  padding: 0;
-}
-.teaching-page .course-rows li {
-  display: grid;
-  grid-template-columns: 1fr auto; /* title left, year right */
-  column-gap: 1rem;
-  align-items: baseline;
-  padding: 0.20rem 0;
+/* Kill ALL table lines/striping for this page’s table only */
+.teaching-page .page__content table.course-table,
+.teaching-page .page__content table.course-table thead,
+.teaching-page .page__content table.course-table tbody,
+.teaching-page .page__content table.course-table tfoot,
+.teaching-page .page__content table.course-table tr,
+.teaching-page .page__content table.course-table th,
+.teaching-page .page__content table.course-table td {
   border: 0 !important;
-  background: transparent !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-color: transparent !important;
   box-shadow: none !important;
+  outline: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
 }
-.teaching-page .course-rows .title {
-  font-weight: 400;               /* no bold */
-  overflow-wrap: anywhere;
-  min-width: 0;
+.teaching-page .page__content table.course-table {
+  width: 100% !important;
+  table-layout: fixed !important;      /* long titles wrap */
+  border-collapse: collapse !important;/* collapse eliminates row separators */
+  border-spacing: 0 !important;
 }
-.teaching-page .course-rows .year {
-  white-space: nowrap;
-  justify-self: end;              /* flush-right */
-  text-align: right;
+.teaching-page .page__content table.course-table tr:nth-child(2n) {
+  background: transparent !important;  /* remove zebra striping */
 }
-/* Very small screens: let year drop below neatly */
-@media (max-width: 34em) {
-  .teaching-page .course-rows li { grid-template-columns: 1fr; }
-  .teaching-page .course-rows .year {
-    justify-self: start;
-    text-align: left;
-    padding-top: 0.1rem;
-  }
+.teaching-page .page__content table.course-table td {
+  padding: 0.2rem 0 !important;
+  vertical-align: baseline !important;
+}
+.teaching-page .page__content table.course-table td.title {
+  font-weight: 400 !important;         /* no bold */
+  overflow-wrap: anywhere !important;
+  padding-right: 1rem !important;
+}
+.teaching-page .page__content table.course-table td.year {
+  width: 1% !important;
+  white-space: nowrap !important;
+  text-align: right !important;        /* flush-right */
 }
 </style>
 
-<ul class="course-rows">
-  <li><span class="title">ECO414 / ECO1960 – Energy and Regulation</span><span class="year">2020–2025</span></li>
-  <li><span class="title">ECO314 – Energy and the Environment</span><span class="year">2020–2025</span></li>
-  <li><span class="title">ECO403 – Topics in Development Economics and Policy</span><span class="year">2024</span></li>
-  <li><span class="title">ENV462 – Energy and Environment: Economics, Politics, and Sustainability</span><span class="year">2021–2024</span></li>
-  <li><span class="title">ECO101 – Principles of Microeconomics</span><span class="year">2023</span></li>
-  <li><span class="title">ECO202 – Macroeconomic Theory and Policy</span><span class="year">2022</span></li>
-  <li><span class="title">ENV347 – The Power of Economic Ideas</span><span class="year">2022</span></li>
-  <li><span class="title">ECO439 – Empirical Methods in Microeconomics</span><span class="year">2021</span></li>
-  <li><span class="title">ECO313 – Environmental Economics and Policies</span><span class="year">2020–2021</span></li>
-  <li><span class="title">ECO220 – Introduction to Data Analysis and Applied Econometrics</span><span class="year">2019–2020</span></li>
-  <li><span class="title">ECO227 – Foundations of Econometrics</span><span class="year">2019</span></li>
-</ul>
+<table class="course-table">
+  <tbody>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO414 / ECO1960 – Energy and Regulation</td><td class="year">2020–2025</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO314 – Energy and the Environment</td><td class="year">2020–2025</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO403 – Topics in Development Economics and Policy</td><td class="year">2024</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ENV462 – Energy and Environment: Economics, Politics, and Sustainability</td><td class="year">2021–2024</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO101 – Principles of Microeconomics</td><td class="year">2023</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO202 – Macroeconomic Theory and Policy</td><td class="year">2022</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ENV347 – The Power of Economic Ideas</td><td class="year">2022</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO439 – Empirical Methods in Microeconomics</td><td class="year">2021</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO313 – Environmental Economics and Policies</td><td class="year">2020–2021</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO220 – Introduction to Data Analysis and Applied Econometrics</td><td class="year">2019–2020</td>
+    </tr>
+    <tr style="border:0;background:transparent;box-shadow:none;">
+      <td class="title">ECO227 – Foundations of Econometrics</td><td class="year">2019</td>
+    </tr>
+  </tbody>
+</table>
