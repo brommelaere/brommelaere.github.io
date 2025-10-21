@@ -435,3 +435,15 @@ body {
     margin-left: 0 !important;
   }
 }
+
+/* === Home page only: revert container width to match masthead (narrow) === */
+@media screen and (min-width: 56em) {
+  /* Narrow the overall page container only on the home page */
+  #main:has(> article.home-narrow) {
+    max-width: 1100px !important; /* same as .masthead__inner-wrap */
+  }
+  /* Slightly narrower reading width so the text looks like before */
+  article.home-narrow .page__content {
+    max-width: 44rem !important;
+  }
+}
