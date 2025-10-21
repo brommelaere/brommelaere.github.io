@@ -61,9 +61,34 @@ classes: [no-title, teaching-page, wide]
   white-space: nowrap !important;
   text-align: right !important;
 }
+/* Remove the vertical divider between the two columns */
+.teaching-page .page__content table.course-table tr > td + td {
+  border-left: 0 !important;
+  border-inline-start: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* Also ensure neither column paints a side border */
+.teaching-page .page__content table.course-table td.title,
+.teaching-page .page__content table.course-table td.year {
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-inline-start: 0 !important;
+  border-inline-end: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove any right-edge border on the table/tbody itself */
+.teaching-page .page__content table.course-table,
+.teaching-page .page__content table.course-table tbody {
+  border-right: 0 !important;
+  border-inline-end: 0 !important;
+  box-shadow: none !important;
+}
 </style>
 
-<table class="course-table" style="border:0 !important; border-collapse:separate !important; border-spacing:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; clip-path: inset(0 1px 0 0); -webkit-clip-path: inset(0 1px 0 0);">
+<table class="course-table" style="border:0 !important; border-collapse:separate !important; border-spacing:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; overflow:hidden; clip-path: inset(0 1px 0 0); -webkit-clip-path: inset(0 1px 0 0);">
   <tbody>
     <tr style="border:0;background:transparent;box-shadow:none;">
       <td class="title">ECO414 / ECO1960 – Energy and Regulation</td><td class="year">2020–2025</td>
