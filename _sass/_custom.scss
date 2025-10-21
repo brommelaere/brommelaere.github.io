@@ -498,3 +498,33 @@ body {
 .research-page .page__content hr {
   margin: 1rem 0 1.1rem !important;
 }
+
+/* fixed2 mobile: force white background, bigger + centered image */
+@media (max-width: 900px){
+  /* Nuke any mobile grey — make everything white */
+  html, body,
+  .layout--single,
+  .layout--single #main,
+  .page, .page__content {
+    background: #fff !important;
+  }
+
+  /* Bigger and centered image */
+  .layout--single .author__avatar {
+    margin: 0 auto !important;
+  }
+  .layout--single .author__avatar img{
+    display: block !important;
+    width: clamp(240px, 80vw, 640px) !important; /* was ~40vw max 280px */
+    height: auto !important;
+  }
+
+  /* Keep the left column centering behavior */
+  .layout--single .sidebar,
+  .layout--single .sidebar.sticky{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    background: transparent !important; /* in case sidebar had a grey bg */
+  }
+}
