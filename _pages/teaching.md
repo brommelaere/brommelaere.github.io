@@ -10,36 +10,54 @@ classes: [no-title, teaching-page, wide]
 
 ### University of Toronto, Department of Economics
 
-<!-- Page-scoped styles so only Teaching is affected -->
 <style>
-/* Clean, borderless table that spans the full content width */
+/* Teaching page: borderless, transparent table; years flush-right */
 .teaching-page .course-table {
   width: 100%;
-  border-collapse: collapse;
-  border: 0;
   margin: 0.25rem 0 0 0;
-  table-layout: fixed; /* allows long titles to wrap while year stays pinned right */
+  border-collapse: separate !important; /* fully separate to avoid theme borders */
+  border-spacing: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  table-layout: fixed; /* long titles wrap; year stays pinned right */
+}
+/* Remove ALL borders/shading from any cells/rows, including zebra striping */
+.teaching-page .course-table tr,
+.teaching-page .course-table th,
+.teaching-page .course-table td {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.teaching-page .course-table tr:nth-child(odd),
+.teaching-page .course-table tr:nth-child(even) {
+  background: transparent !important;
 }
 .teaching-page .course-table td {
-  padding: 0.2rem 0;
-  border: 0;
-  vertical-align: baseline;
+  padding: 0.2rem 0 !important;
+  vertical-align: baseline !important;
 }
 .teaching-page .course-table td.title {
-  font-weight: 400;        /* no heavy bold */
-  word-wrap: break-word;
-  overflow-wrap: anywhere; /* wrap long course names */
-  padding-right: 1rem;
+  font-weight: 400 !important;      /* no heavy bold */
+  overflow-wrap: anywhere !important;
+  padding-right: 1rem !important;
 }
 .teaching-page .course-table td.year {
-  text-align: right;       /* flush to right edge */
-  white-space: nowrap;
-  width: 1%;               /* keep year column as small as possible */
+  width: 1% !important;             /* keep year column narrow */
+  white-space: nowrap !important;
+  text-align: right !important;      /* flush-right */
 }
+
+/* Small screens: allow year to drop below cleanly */
 @media (max-width: 34em) {
-  /* On very small screens, let the year drop below with a subtle indent */
-  .teaching-page .course-table tr { display: grid; grid-template-columns: 1fr; }
-  .teaching-page .course-table td.year { text-align: left; padding-top: 0.1rem; }
+  .teaching-page .course-table tr {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+  .teaching-page .course-table td.year {
+    text-align: left !important;
+    padding-top: 0.1rem !important;
+  }
 }
 </style>
 
