@@ -6,7 +6,7 @@ author_profile: true
 classes: [landing-offset, home-narrow]
 ---
 
-I am a PhD candidate in Economics at the University of Toronto. My research uses tools from empirical industrial organization and applied microeconomics to study environmental regulation.
+r I am a PhD candidate in Economics at the University of Toronto. My research uses tools from empirical industrial organization and applied microeconomics to study environmental regulation.
 
 My job market paper develops a dynamic structural model of forest harvesting and land use to quantify the carbon effects of EU wood-bioenergy subsidies. More broadly, my research examines how environmental regulation shapes market structure and land-use outcomes to inform better environmental policy design.
 
