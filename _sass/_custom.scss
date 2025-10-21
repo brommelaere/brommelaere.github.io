@@ -341,3 +341,93 @@ body {
 @media screen and (max-width: 34.375em) {
   .author__avatar img { max-width: 140px !important; }
 }
+
+/* ===== OVERRIDES V2 (wider layout, later stacking, teaching two‑column list) ===== */
+
+/* Make the two‑column layout kick in earlier and widen the overall container */
+@media screen and (min-width: 50em) {
+  #main {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+    max-width: 1500px !important;  /* ~25% wider than 1100px */
+    margin: 0 auto !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .sidebar {
+    flex: 0 0 auto !important;
+    align-self: flex-start !important;
+    margin-top: 1.5rem !important;  /* nudge image down so top aligns with text */
+  }
+
+  .page {
+    flex: 1 1 auto !important;
+  }
+}
+
+/* Default reading width a bit wider globally */
+.page__content {
+  max-width: 52rem !important; /* ~832px */
+  > *:first-child { margin-top: 0 !important; } /* align to image top everywhere */
+}
+
+/* Wider pages (Teaching, Consulting) */
+@media (min-width: 992px) {
+  article.wide .page__content {
+    max-width: 68rem !important; /* ~1088px */
+  }
+}
+
+/* Research: even wider and slightly smaller text, including abstracts */
+@media (min-width: 992px) {
+  article.research-page .page__content {
+    max-width: 72rem !important; /* ~1152px */
+    font-size: 0.98rem !important;
+    line-height: 1.6 !important;
+  }
+
+  article.research-page .page__content details,
+  article.research-page .page__content details p {
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* Teaching: two‑column course list with right‑aligned years */
+.teaching-page .course-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0.25rem 0 0 0 !important;
+  max-width: 68rem !important; /* match 'wide' width */
+}
+
+.teaching-page .course-list li {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important; /* course left, year right */
+  column-gap: 1.5rem !important;
+  align-items: baseline !important;
+  padding: 0.2rem 0 !important;
+}
+
+.teaching-page .course-list .course {
+  min-width: 0 !important;
+}
+
+.teaching-page .course-list .year {
+  white-space: nowrap !important;
+  color: #555 !important;
+  font-weight: 500 !important;
+}
+
+/* On very narrow screens, allow stack (year below) with subtle indent */
+@media (max-width: 30em) {
+  .teaching-page .course-list li {
+    grid-template-columns: 1fr !important;
+  }
+  .teaching-page .course-list .year {
+    justify-self: start !important;
+    margin-left: 0 !important;
+  }
+}
