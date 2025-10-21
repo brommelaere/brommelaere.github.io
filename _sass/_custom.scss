@@ -448,48 +448,48 @@ body {
   }
 }
 
-/* === Research page spacing (tighten before Abstract; add clear space after) === */
-
-/* Titles tight to their meta line */
+/* === Research page spacing fixes (match current Markdown output) === */
+/* Tighten title → meta (the line with “— Job Market Paper …”) */
 .research-page .page__content h3 {
-  margin-bottom: 0.3rem !important;
+  margin-bottom: 0.25rem !important;
+}
+/* The meta line is a paragraph directly after the h3 */
+.research-page .page__content h3 + p {
+  margin-top: 0.05rem !important;
+  margin-bottom: 0.35rem !important; /* small gap before the Abstract toggle */
 }
 
-/* Working Papers: meta span right after h3 acts like a compact block */
-.research-page .page__content h3 + span {
-  display: block !important;
-  margin-top: 0.15rem !important;
-  margin-bottom: 0.35rem !important; /* small gap before Abstract */
-}
-
-/* Work in Progress: your title + “with …” live in one paragraph.
-   Make any top-level paragraph just before <details> compact. */
+/* Work in Progress: the title + “with …” live in one paragraph;
+   make any top-level paragraph just before <details> compact */
 .research-page .page__content > p + details {
-  margin-top: 0.35rem !important;    /* small gap before Abstract toggle */
+  margin-top: 0.25rem !important;   /* small gap before Abstract */
 }
-/* Also trim the bottom margin of that preceding paragraph (top-level only) */
+/* Trim the default bottom margin on top-level paragraphs on the research page */
 .research-page .page__content > p {
-  margin-bottom: 0.5rem !important;  /* default for top-level paras on research page */
-}
-/* When a top-level paragraph is immediately followed by details, trim further */
-.research-page .page__content > p:has(+ details) { /* if your browser ignores :has, the next rule still handles the gap via details' margin-top */
-  margin-bottom: 0.35rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
-/* Consistent space after the Abstract block (closed or open) */
+/* Abstract block: small gap before; clear, consistent gap after (open or closed) */
 .research-page .page__content details {
-  margin-bottom: 1.0rem !important;  /* clear space before the next item */
+  margin-top: 0.2rem !important;
+  margin-bottom: 1.0rem !important; /* space to next entry */
 }
-/* When Abstract is open, give a touch more breathing room */
 .research-page .page__content details[open] {
-  margin-bottom: 1.15rem !important;
+  margin-bottom: 1.15rem !important; /* a touch more when open */
 }
-/* Inside Abstract text: keep internal paragraphs neat without adding extra bottom gap */
-.research-page .page__content details p:last-child {
-  margin-bottom: 0.2rem !important;
+/* Keep the summary itself snug */
+.research-page .page__content details > summary {
+  margin: 0 !important;
+}
+
+/* Ensure space to next title or separator, regardless of pattern */
+.research-page .page__content details + h3,
+.research-page .page__content details + p,
+.research-page .page__content details + hr {
+  margin-top: 1rem !important;
 }
 
 /* Horizontal rules between entries */
 .research-page .page__content hr {
-  margin: 1.1rem 0 1.3rem !important;
+  margin: 1rem 0 1.1rem !important;
 }
