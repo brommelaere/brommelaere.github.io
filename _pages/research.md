@@ -1,9 +1,9 @@
 ---
 layout: single
-title: ""                  # hide H1
+title: ""                     # hide page H1
 permalink: /research/
 author_profile: true
-classes: [no-title, wide]
+classes: [no-title, research-page]
 ---
 
 ## Working Papers
