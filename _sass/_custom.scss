@@ -1,16 +1,18 @@
 /* ==========================================================================
-   CUSTOM OVERRIDES FOR ACADEMICPAGES - PROPERLY ALIGNED LAYOUT (fixed2)
+   CUSTOM OVERRIDES FOR ACADEMICPAGES - PROPERLY ALIGNED LAYOUT
    ========================================================================== */
 
-/* ---------------------------
-   NAVIGATION BAR (unchanged)
-   --------------------------- */
+$align-offset: 0px !default;
+
+/* ============================================================
+   NAVIGATION BAR
+   ============================================================ */
 
 .masthead {
   @media screen and (min-width: 64em) {
     padding-left: 0 !important;
     padding-right: 0 !important;
-    border-bottom: 1px solid #e5e5e5 !important;
+    border-bottom: 1px solid #e5e5e5 !important; /* LINE UNDER NAV */
   }
 }
 
@@ -35,33 +37,48 @@
   }
 }
 
-/* ---------------------------
+/* ============================================================
    MAIN WRAPPER
-   --------------------------- */
+   ============================================================ */
 
 #main {
   margin-top: 0 !important;
   padding-top: 0 !important;
 
-  /* Keep two columns earlier, and allow a wider page container */
+  /* SIDE-BY-SIDE STARTS EARLIER (smaller screens keep two columns) */
   @media screen and (min-width: 56em) {
     display: flex !important;
     align-items: flex-start !important;
     gap: 2rem !important;
-    max-width: 1375px !important; /* ~25% wider than 1100px nav */
+    /* ~25% wider than 1100px nav container */
+    max-width: 1375px !important;
     margin: 0 auto !important;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
   }
 }
 
-/* JS normally adds body padding-top equal to masthead height. Provide tiny fallback. */
-:root { --nav-extra-gap: 0px; }
-body  { padding-top: var(--nav-extra-gap); }
+/* NOTE:
+   - The masthead is position: fixed. The site JavaScript sets the inline
+     body padding-top to the masthead height so content sits below the nav.
+   - Do NOT apply strong margin-top overrides (especially `!important`) to
+     individual content blocks (.page, .author__avatar, etc.) — that causes
+     double-shifting and misalignment between images and text.
+   - This file provides a lightweight CSS fallback only (used if JS is disabled).
+*/
 
-/* ---------------------------
-   SIDEBAR / AUTHOR CARD
-   --------------------------- */
+/* Lightweight fallback (used if JS is disabled). JS will override inline when present. */
+:root {
+  --nav-extra-gap: 0px; /* populate via JS for mastheadHeight + desired extra gap */
+}
+
+body {
+  padding-top: var(--nav-extra-gap);
+}
+
+/* ============================================================
+   SIDEBAR - STAYS LEFT ON MOBILE
+   ============================================================ */
 
 .sidebar {
   margin-top: 0 !important;
@@ -69,22 +86,29 @@ body  { padding-top: var(--nav-extra-gap); }
   padding-top: 0 !important;
   margin-right: 0 !important;
 
+  /* SIDE-BY-SIDE EARLIER + LOWER THE IMAGE A LITTLE FOR TOP ALIGNMENT */
   @media screen and (min-width: 56em) {
     flex: 0 0 auto !important;
     align-self: flex-start !important;
-    margin-top: 1.25rem !important; /* nudge image down so top aligns with text */
+    padding-top: 0 !important;
+    margin-top: 1.25rem !important;
     padding-left: 0 !important;
     margin-right: 0 !important;
     width: auto !important;
     float: none !important;
   }
-
+  
+  /* MOBILE: Keep sidebar on left with flex */
   @media screen and (max-width: 55.999em) {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
   }
 }
+
+/* ============================================================
+   AVATAR/IMAGE
+   ============================================================ */
 
 .author__avatar {
   margin-top: 0 !important;
@@ -99,18 +123,23 @@ body  { padding-top: var(--nav-extra-gap); }
     padding: 0 !important;
     margin: 0 !important;
     display: block !important;
-
+    
+    /* MOBILE: smaller but stays left */
     @media screen and (max-width: 55.999em) {
       max-width: 200px !important;
     }
   }
 }
 
+/* ============================================================
+   AUTHOR INFO
+   ============================================================ */
+
 .author__content {
   text-align: center !important;
   margin-top: 0 !important;
   padding-top: 0 !important;
-
+  
   @media screen and (max-width: 55.999em) {
     display: none !important;
   }
@@ -121,24 +150,54 @@ body  { padding-top: var(--nav-extra-gap); }
   font-weight: 600 !important;
   margin: 0 0 0.2rem 0 !important;
   line-height: 1.2 !important;
+  padding: 0 !important;
   white-space: nowrap !important;
 }
 
-.sidebar p, .sidebar li {
-  margin: 0.1rem 0 !important;
+.sidebar p,
+.sidebar li {
+  margin-top: 0.1rem !important;
+  margin-bottom: 0.1rem !important;
   white-space: nowrap !important;
 }
 
-.author__urls-wrapper { margin-top: 0.2rem !important; }
-.author__urls-wrapper button { display: none !important; }
+.author__urls-wrapper {
+  margin-top: 0.2rem !important;
 
-@media screen and (max-width: 55.999em) {
-  .author__urls-wrapper { display: none !important; }
+  @media screen and (min-width: 56em) {
+    display: block !important;
+  }
+
+  button {
+    display: none !important;
+  }
+  
+  @media screen and (max-width: 55.999em) {
+    display: none !important;
+  }
 }
 
-/* ---------------------------
-   PAGE AREA
-   --------------------------- */
+.author__urls {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+
+  li {
+    text-align: center !important;
+    margin: 0.1rem 0 !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap !important;
+  }
+
+  a {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* ============================================================
+   PAGE CONTENT
+   ============================================================ */
 
 .page {
   margin-top: 0 !important;
@@ -147,93 +206,202 @@ body  { padding-top: var(--nav-extra-gap); }
   float: none !important;
 
   @media screen and (min-width: 56em) {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding-top: 0 !important;
     flex: 1 1 auto !important;
     min-width: 0 !important;
     width: auto !important;
   }
 }
 
-.page__inner-wrap { margin-top: 0 !important; padding-top: 0 !important; }
-.page__title      { margin-top: 0 !important; padding-top: 0 !important; }
+.page__inner-wrap {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
 
-/* Base reading measure + global full-justification */
+.page__title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 .page__content {
   font-size: 1.05rem !important;
   line-height: 1.7 !important;
-  max-width: 52rem !important;   /* default width for content column */
+  /* GLOBAL DEFAULT WIDTH — wider than before for all pages */
+  max-width: 48rem !important; /* per-page variants below */
   margin-top: 0 !important;
   padding-top: 0 !important;
 
+  /* Ensure the first block aligns to the image top */
   > *:first-child { margin-top: 0 !important; }
 
-  /* Full justification for a neat look */
-  p, li {
+  p {
+    margin-bottom: 1.2rem !important;
     text-align: justify !important;
-    text-justify: inter-word;
-    text-align-last: left;
-    hyphens: auto;
-    margin-bottom: 1.15rem !important;
+    text-align-last: left !important;
+    word-spacing: -0.05em !important;
+    hyphens: none !important;
   }
 
+  p:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
   @media screen and (max-width: 55.999em) {
-    p, li { text-align: left !important; }
+    p { text-align: left !important; }
   }
 }
 
-/* Hide H1 when using 'no-title' and keep first content flush with image top */
+/* ============================================================
+   OPT-IN PAGE VARIANTS (via page front matter `classes`)
+   ============================================================ */
+
+/* Wider content variant for Consulting/Teaching, etc. */
+@media (min-width: 992px) {
+  article.wide .page__content {
+    max-width: 62rem !important; /* ~992px */
+  }
+}
+
+/* Research: even wider and smaller font to reduce scroll in abstracts */
+@media (min-width: 992px) {
+  article.research-page .page__content {
+    max-width: 66rem !important; /* ~1056px */
+    font-size: 1.0rem !important;
+    line-height: 1.65 !important;
+  }
+  /* Abstract body size/leading */
+  article.research-page .page__content details,
+  article.research-page .page__content details p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* Hide the big H1 when using `no-title` and keep first content flush at top */
 .no-title .page__title { display: none !important; }
 .no-title .page__content > *:first-child { margin-top: 0 !important; }
 
-/* ---------------------------
-   PAGE VARIANTS (via front matter classes)
-   --------------------------- */
+/* Landing-only: extra nudge down if you apply `landing-offset` on that page */
+#main:has(> article.landing-offset) .sidebar {
+  margin-top: 1.75rem !important;
+}
 
-/* Wider pages (Teaching, Consulting, etc.) */
-@media (min-width: 992px) {
-  article.wide .page__content {
-    max-width: 68rem !important;  /* ~1088px */
+/* ============================================================
+   TEACHING PAGE TIDY-UP
+   - Put the year on the right, aligned vertically
+   ============================================================ */
+
+.teaching-page .page__content ul {
+  max-width: 62rem !important;
+  padding-left: 1.25rem !important;
+}
+
+.teaching-page .page__content ul li {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important; /* title left, year right */
+  column-gap: 1rem !important;
+  align-items: baseline !important;
+  margin: 0.6rem 0 !important;
+}
+
+/* Make the last child (usually the year line) right-aligned */
+.teaching-page .page__content ul li > :last-child {
+  grid-column: 2 !important;
+  justify-self: end !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Left column for the main course text */
+.teaching-page .page__content ul li > :first-child {
+  grid-column: 1 !important;
+}
+
+/* Remove forced breaks if any were authored */
+.teaching-page .page__content ul li br { display: none !important; }
+
+/* ============================================================
+   FOOTER - FIX WHITE BACKGROUND
+   ============================================================ */
+
+.page__footer { background: transparent !important; }
+.page__footer footer { background: transparent !important; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media screen and (max-width: 43.75em) {
+  .author__avatar img { max-width: 160px !important; }
+}
+
+@media screen and (max-width: 34.375em) {
+  .author__avatar img { max-width: 140px !important; }
+}
+
+/* ===== OVERRIDES V2 (wider layout, later stacking, teaching two‑column list) ===== */
+
+/* Make the two‑column layout kick in earlier and widen the overall container */
+@media screen and (min-width: 50em) {
+  #main {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+    max-width: 1500px !important;  /* ~25% wider than 1100px */
+    margin: 0 auto !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .sidebar {
+    flex: 0 0 auto !important;
+    align-self: flex-start !important;
+    margin-top: 1.5rem !important;  /* nudge image down so top aligns with text */
+  }
+
+  .page {
+    flex: 1 1 auto !important;
   }
 }
 
-/* Research: widest, with slightly smaller type; smaller still inside abstracts */
+/* Default reading width a bit wider globally */
+.page__content {
+  max-width: 52rem !important; /* ~832px */
+  > *:first-child { margin-top: 0 !important; } /* align to image top everywhere */
+}
+
+/* Wider pages (Teaching, Consulting) */
+@media (min-width: 992px) {
+  article.wide .page__content {
+    max-width: 68rem !important; /* ~1088px */
+  }
+}
+
+/* Research: even wider and slightly smaller text, including abstracts */
 @media (min-width: 992px) {
   article.research-page .page__content {
-    max-width: 72rem !important;  /* ~1152px */
+    max-width: 72rem !important; /* ~1152px */
     font-size: 0.98rem !important;
     line-height: 1.6 !important;
   }
+
   article.research-page .page__content details,
   article.research-page .page__content details p {
     font-size: 0.94rem !important;
     line-height: 1.55 !important;
-    text-align: justify !important;
-    text-justify: inter-word;
-    text-align-last: left;
   }
 }
 
-/* Landing page (About) back to original narrow width */
-@media screen and (min-width: 56em) {
-  #main:has(> article.home-narrow) { max-width: 1100px !important; }  /* match nav */
-  article.home-narrow .page__content { max-width: 44rem !important; }
-}
-
-/* Landing-only: a touch more image lowering if 'landing-offset' is present */
-#main:has(> article.landing-offset) .sidebar { margin-top: 1.5rem !important; }
-
-/* ---------------------------
-   TEACHING PAGE
-   Right-aligned years in a dedicated column
-   Supports either HTML .course-rows or list items with a wrapped .year / em
-   --------------------------- */
-
-/* Preferred explicit markup: .course-rows with .row/.title/.year */
+/* === Teaching page: rigid two-column rows with right-aligned years === */
 .teaching-page .course-rows {
   list-style: none !important;
   padding: 0 !important;
   margin: 0.25rem 0 0 0 !important;
+  max-width: 68rem !important; /* matches your 'wide' width */
   width: 100% !important;
-  max-width: 68rem !important; /* align with 'wide' */
 }
 
 .teaching-page .course-rows .row {
@@ -242,85 +410,28 @@ body  { padding-top: var(--nav-extra-gap); }
   column-gap: 1.5rem !important;
   align-items: baseline !important;
   padding: 0.25rem 0 !important;
-  width: 100% !important;
+  width: 100% !important; /* ensures the right column can reach the far edge */
 }
 
 .teaching-page .course-rows .title {
   min-width: 0 !important;
-  overflow-wrap: anywhere !important;
+  overflow-wrap: anywhere !important; /* long titles wrap, year stays pinned right */
 }
 
 .teaching-page .course-rows .year {
-  justify-self: end !important;
-  white-space: nowrap !important;
+  justify-self: end !important;      /* right edge of the content column */
+  white-space: nowrap !important;     /* never break the year range */
   color: #555 !important;
   font-weight: 500 !important;
 }
 
-/* Fallback: if using a UL list but the year is wrapped */
-.teaching-page .page__content ul.course-list,
-.teaching-page .page__content ul.courses {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-.teaching-page .page__content ul.course-list > li,
-.teaching-page .page__content ul.courses > li {
-  display: grid !important;
-  grid-template-columns: 1fr auto !important;
-  column-gap: 1.25rem !important;
-  align-items: baseline !important;
-  padding: 0.25rem 0 !important;
-}
-
-.teaching-page .page__content ul.course-list > li .year,
-.teaching-page .page__content ul.courses > li .year,
-.teaching-page .page__content ul.course-list > li em:last-child,
-.teaching-page .page__content ul.courses > li em:last-child {
-  grid-column: 2 !important;
-  justify-self: end !important;
-  white-space: nowrap !important;
-  color: #555 !important;
-  font-weight: 500 !important;
-}
-
-.teaching-page .page__content ul.course-list > li > :not(.year):not(em:last-child) {
-  grid-column: 1 !important;
-}
-
-/* Very small screens: stack gracefully */
+/* On very small screens, let it stack gracefully */
 @media (max-width: 30em) {
-  .teaching-page .course-rows .row,
-  .teaching-page .page__content ul.course-list > li,
-  .teaching-page .page__content ul.courses > li {
+  .teaching-page .course-rows .row {
     grid-template-columns: 1fr !important;
   }
-  .teaching-page .course-rows .year,
-  .teaching-page .page__content ul.course-list > li .year,
-  .teaching-page .page__content ul.courses > li .year,
-  .teaching-page .page__content ul.course-list > li em:last-child,
-  .teaching-page .page__content ul.courses > li em:last-child {
+  .teaching-page .course-rows .year {
     justify-self: start !important;
+    margin-left: 0 !important;
   }
-}
-
-/* ---------------------------
-   FOOTER
-   --------------------------- */
-
-.page__footer,
-.page__footer footer {
-  background: transparent !important;
-}
-
-/* ---------------------------
-   MISC RESPONSIVE
-   --------------------------- */
-
-@media screen and (max-width: 43.75em) {
-  .author__avatar img { max-width: 160px !important; }
-}
-@media screen and (max-width: 34.375em) {
-  .author__avatar img { max-width: 140px !important; }
 }
