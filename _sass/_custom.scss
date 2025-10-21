@@ -395,38 +395,42 @@ body {
   }
 }
 
-/* Teaching: two‑column course list with right‑aligned years */
-.teaching-page .course-list {
+/* === Teaching page: rigid two-column rows with right-aligned years === */
+.teaching-page .course-rows {
   list-style: none !important;
-  padding-left: 0 !important;
+  padding: 0 !important;
   margin: 0.25rem 0 0 0 !important;
-  max-width: 68rem !important; /* match 'wide' width */
+  max-width: 68rem !important; /* matches your 'wide' width */
+  width: 100% !important;
 }
 
-.teaching-page .course-list li {
+.teaching-page .course-rows .row {
   display: grid !important;
-  grid-template-columns: 1fr auto !important; /* course left, year right */
+  grid-template-columns: 1fr auto !important; /* title left, year right */
   column-gap: 1.5rem !important;
   align-items: baseline !important;
-  padding: 0.2rem 0 !important;
+  padding: 0.25rem 0 !important;
+  width: 100% !important; /* ensures the right column can reach the far edge */
 }
 
-.teaching-page .course-list .course {
+.teaching-page .course-rows .title {
   min-width: 0 !important;
+  overflow-wrap: anywhere !important; /* long titles wrap, year stays pinned right */
 }
 
-.teaching-page .course-list .year {
-  white-space: nowrap !important;
+.teaching-page .course-rows .year {
+  justify-self: end !important;      /* right edge of the content column */
+  white-space: nowrap !important;     /* never break the year range */
   color: #555 !important;
   font-weight: 500 !important;
 }
 
-/* On very narrow screens, allow stack (year below) with subtle indent */
+/* On very small screens, let it stack gracefully */
 @media (max-width: 30em) {
-  .teaching-page .course-list li {
+  .teaching-page .course-rows .row {
     grid-template-columns: 1fr !important;
   }
-  .teaching-page .course-list .year {
+  .teaching-page .course-rows .year {
     justify-self: start !important;
     margin-left: 0 !important;
   }
