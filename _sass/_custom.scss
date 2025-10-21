@@ -88,7 +88,8 @@ body {
     flex: 0 0 auto !important;
     align-self: flex-start !important;
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    /* ADDED: lower the photo a bit site-wide so the text aligns to the top */
+    margin-top: 1.25rem !important;
     padding-left: 0 !important;
     margin-right: 0 !important;
     width: auto !important;
@@ -225,9 +226,13 @@ body {
 .page__content {
   font-size: 1.05rem !important;
   line-height: 1.7 !important;
-  max-width: 700px !important; /* default width */
+  /* ADDED: default wider measure (affects all pages) */
+  max-width: 48rem !important; /* ~768px default; per-page overrides below */
   margin-top: 0 !important;
   padding-top: 0 !important;
+
+  /* ADDED: whatever the first element is (h2, p, etc.), do not add top gap */
+  > *:first-child { margin-top: 0 !important; }
 
   p {
     margin-bottom: 1.2rem !important;
@@ -249,74 +254,84 @@ body {
   }
 }
 
-/* Opt‑in wider reading width for selected pages */
+/* ============================================================
+   OPT-IN PAGE VARIANTS (via page front matter `classes`)
+   ============================================================ */
+
+/* Wider content variant */
 @media (min-width: 992px) {
   article.wide .page__content {
-    max-width: 48rem !important; /* ~768px; adjust if you want a wider measure */
+    max-width: 54rem !important; /* ~864px */
   }
 }
 
-/* When we hide the big H1, ensure first content aligns to the top of the image */
-.no-title .page__title {
-  display: none !important;
-}
-.no-title .page__content > *:first-child {
-  margin-top: 0 !important;
+/* Research: even wider and slightly smaller font to reduce scrolling when abstracts open */
+@media (min-width: 992px) {
+  article.research-page .page__content {
+    max-width: 56rem !important; /* ~896px */
+    font-size: 1.0rem !important;
+    line-height: 1.7 !important;
+  }
 }
 
-/* Lower the author card only on the landing (About) page when it has class 'landing-offset' */
+/* When we hide the big H1 with `no-title`, ensure first content aligns to image top */
+.no-title .page__title { display: none !important; }
+.no-title .page__content > *:first-child { margin-top: 0 !important; }
+
+/* Landing page only (if you want a bit more image lowering there, add `landing-offset`) */
 #main:has(> article.landing-offset) .sidebar {
-  margin-top: 1.5rem !important; /* tweak 1.25–2.0rem to taste */
+  margin-top: 1.75rem !important;
 }
 
 /* ============================================================
    TEACHING PAGE TIDY-UP
+   - Put the year on the right, aligned vertically
    ============================================================ */
 
 .teaching-page .page__content ul {
   max-width: 56rem !important;
+  padding-left: 1.25rem !important;
 }
+
 .teaching-page .page__content ul li {
-  display: flex !important;
-  flex-wrap: wrap !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto !important; /* title on left, year on right */
+  column-gap: 1rem !important;
   align-items: baseline !important;
-  column-gap: 0.5rem !important;
+  margin: 0.6rem 0 !important;
 }
-/* Keep codes/titles/years from breaking awkwardly */
-.teaching-page .page__content ul li strong,
-.teaching-page .page__content ul li em,
-.teaching-page .page__content ul li time {
+
+/* Make the last child (usually the year line) right-aligned */
+.teaching-page .page__content ul li > :last-child {
+  grid-column: 2 !important;
+  justify-self: end !important;
+  margin: 0 !important;
   white-space: nowrap !important;
 }
-/* If content has manual <br>, suppress to avoid forced wraps */
-.teaching-page .page__content ul li br {
-  display: none !important;
+
+/* Allow main text to occupy the left column consistently */
+.teaching-page .page__content ul li > :first-child {
+  grid-column: 1 !important;
 }
+
+/* Remove forced breaks if any were authored */
+.teaching-page .page__content ul li br { display: none !important; }
 
 /* ============================================================
    FOOTER - FIX WHITE BACKGROUND
    ============================================================ */
 
-.page__footer {
-  background: transparent !important;
-}
-
-.page__footer footer {
-  background: transparent !important;
-}
+.page__footer { background: transparent !important; }
+.page__footer footer { background: transparent !important; }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 
 @media screen and (max-width: 43.75em) {
-  .author__avatar img {
-    max-width: 160px !important;
-  }
+  .author__avatar img { max-width: 160px !important; }
 }
 
 @media screen and (max-width: 34.375em) {
-  .author__avatar img {
-    max-width: 140px !important;
-  }
+  .author__avatar img { max-width: 140px !important; }
 }
