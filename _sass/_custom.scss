@@ -126,7 +126,7 @@ body {
     
     /* MOBILE: smaller but stays left */
     @media screen and (max-width: 55.999em) {
-      max-width: 200px !important;
+      max-width: none !important;
     }
   }
 }
@@ -335,11 +335,11 @@ body {
    ============================================================ */
 
 @media screen and (max-width: 43.75em) {
-  .author__avatar img { max-width: 160px !important; }
+  .author__avatar img { max-width: none  !important; }
 }
 
 @media screen and (max-width: 34.375em) {
-  .author__avatar img { max-width: 140px !important; }
+  .author__avatar img { max-width: none  !important; }
 }
 
 /* ===== OVERRIDES V2 (wider layout, later stacking, teaching two‑column list) ===== */
@@ -499,32 +499,41 @@ body {
   margin: 1rem 0 1.1rem !important;
 }
 
-/* fixed2 mobile: force white background, bigger + centered image */
+/* === FINAL: fixed2 mobile — force white bg; big, centered image === */
 @media (max-width: 900px){
-  /* Nuke any mobile grey — make everything white */
+  /* Kill any mobile grey backgrounds from theme or earlier rules */
   html, body,
+  .site,
+  .initial-content,
   .layout--single,
   .layout--single #main,
-  .page, .page__content {
+  .page,
+  .page__content,
+  .sidebar {
     background: #fff !important;
   }
 
   /* Bigger and centered image */
   .layout--single .author__avatar {
     margin: 0 auto !important;
-  }
-  .layout--single .author__avatar img{
-    display: block !important;
-    width: clamp(240px, 80vw, 640px) !important; /* was ~40vw max 280px */
-    height: auto !important;
+    text-align: center !important;
   }
 
-  /* Keep the left column centering behavior */
+  .layout--single .author__avatar img{
+    display: block !important;
+    width: clamp(280px, 80vw, 640px) !important; /* increase min and allow large on mobile */
+    max-width: none !important;                 /* defeat earlier max-width caps */
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  /* Center the left column on mobile and ensure no grey in the sidebar */
   .layout--single .sidebar,
   .layout--single .sidebar.sticky{
     display: flex !important;
     justify-content: center !important;
     align-items: flex-start !important;
-    background: transparent !important; /* in case sidebar had a grey bg */
+    background: transparent !important;
+    width: 100% !important; /* allow centering across the row */
   }
 }
