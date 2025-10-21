@@ -34,8 +34,7 @@ The Brazilian soy industry is a leading cause of deforestation in several major 
 ---
 
 ## Work in Progress
-
-- **Incentives and Corruption in Panama: Evidence from Gasoline Markets**  
+**Incentives and Corruption in Panama: Evidence from Gasoline Markets**  
   *with Steven Lehrer and Decio Coviello*
   <details>
   <summary><strong>Abstract (click to expand)</strong></summary>
@@ -54,8 +53,9 @@ The Brazilian soy industry is a leading cause of deforestation in several major 
 
   </details>
   
-- **Environmental Regulation of Wood Processing Mills: The Boiler MACT Rule**  
-- **Forest Market Dynamics and Global Carbon Leakage of EU Bioenergy Subsidies**  
+**Environmental Regulation of Wood Processing Mills: The Boiler MACT Rule**  
+
+**Forest Market Dynamics and Global Carbon Leakage of EU Bioenergy Subsidies**  
 
 ---
 
