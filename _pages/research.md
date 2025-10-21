@@ -52,8 +52,9 @@ The Brazilian soy industry is a leading cause of deforestation in several major 
 ## Publication
 
 ### Making Transit Reliability Benefits Accessible to Engineers  
-<span style="font-weight:normal;">· [<a href="https://ascelibrary.org/doi/10.1061/9780784479926.051" target="_blank">published version</a>]</span>  
 *with John Parker*, *International Conference on Transportation and Development, 2016*  
+<span style="font-weight:normal;">· [<a href="https://ascelibrary.org/doi/10.1061/9780784479926.051" target="_blank">published version</a>]</span>  
+
   <details>
   <summary><strong>Abstract (click to expand)</strong></summary>
   Advances in measuring the intangible costs and benefits of transportation are being made but economic cost-benefit models used to analyze transportation infrastructure projects have not kept up. There are new benefit categories that existing transportation cost-benefit models do not include. One example is the benefit of travel time reliability. This paper summarizes the results of 30 studies of reliability and synthesizes them into a reliability ratio that can be used in transit cost-benefit analysis. By interpreting and standardizing reliability research the paper shows how cutting edge transportation research can be made available to engineering and planning professionals in their planning and design decisions. The value of reliability is implemented in a cost-benefit and risk analysis model and is freely available as a spreadsheet from the authors.
