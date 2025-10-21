@@ -63,7 +63,7 @@ classes: [no-title, teaching-page, wide]
 }
 </style>
 
-<table class="course-table" style="border:0 !important; border-collapse:separate !important; border-spacing:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important;">
+<table class="course-table" style="border:0 !important; border-collapse:separate !important; border-spacing:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; clip-path: inset(0 1px 0 0); -webkit-clip-path: inset(0 1px 0 0);">
   <tbody>
     <tr style="border:0;background:transparent;box-shadow:none;">
       <td class="title">ECO414 / ECO1960 – Energy and Regulation</td><td class="year">2020–2025</td>
