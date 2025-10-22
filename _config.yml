@@ -4,7 +4,7 @@ site_theme               : "default"
 title                    : "Ben Rommelaere"
 title_separator          : "-"
 name                     : &name "Ben Rommelaere"
-description              : &description "PhD Candidate in Economics at the University of Toronto"
+description              : "Official site of Ben Rommelaere (Benjamin Rommelaere)."
 url                      : https://benrommelaere.com # CHANGE: Replace yourusername
 baseurl                  : ""
 repository               : "brommelaere/brommelaere.github.io" # CHANGE: Replace yourusername
@@ -131,6 +131,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-seo-tag
 
 # Archives
 category_archive:
