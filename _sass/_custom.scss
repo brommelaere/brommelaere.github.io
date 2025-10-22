@@ -149,7 +149,7 @@ body {
     /* MOBILE: smaller but stays left */
     @media screen and (max-width: 55.999em) {
       max-width: none !important;
-      width: clamp(320px, 90vw, 820px) !important;
+      width: clamp(210px, 60vw, 820px) !important;
       margin: 0 auto !important; 
     }
   }
