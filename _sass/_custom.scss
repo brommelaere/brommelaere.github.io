@@ -76,20 +76,6 @@ body {
   padding-top: var(--nav-extra-gap);
 }
 
-/* Nav: force white background at all sizes (prevents grey on mobile) */
-.masthead,
-.masthead__inner-wrap,
-.greedy-nav,
-.greedy-nav .visible-links,
-.greedy-nav .hidden-links,
-.greedy-nav .menu-toggle {
-  background: #fff !important;
-  box-shadow: none !important;
-}
-
-/* Keep the subtle bottom border on mobile too */
-.masthead { border-bottom: 1px solid #e5e5e5 !important; }
-
 /* Global: force white background everywhere */
 html, body,
 .site,
