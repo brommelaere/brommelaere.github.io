@@ -26,7 +26,7 @@ The Brazilian soy industry is a leading cause of deforestation in several major 
 
 ## Work in Progress
 **Incentives and Corruption in Panama: Evidence from Gasoline Markets**  
-  *with Steven Lehrer and Decio Coviello*
+  *with Decio Coviello and Steven Lehrer*
   <details style="margin: -0.55rem 0 1.00rem 0; padding-top: 0; border-top: 0;">
   <summary style="font-weight: 400; color: #444;"><em>Abstract (click to expand)</em></summary>
   This paper studies the misuse of public funds using transaction-level data from Panama’s national
