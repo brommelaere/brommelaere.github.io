@@ -43,7 +43,7 @@ The Brazilian soy industry is a leading cause of deforestation in several major 
 
 **Environmental Regulation of Wood Processing Mills: The Boiler MACT Rule**  
 
-**Forest Market Dynamics and Global Carbon Leakage of EU Bioenergy Subsidies**  
+**Optimal Spatial Targeting of Wood Bioenergy Subsidies**  
 
 <hr style="margin: 0.80rem 0 1.00rem;">
 
